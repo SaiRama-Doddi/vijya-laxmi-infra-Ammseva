@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import {
   Award,
   Building2,
@@ -19,28 +19,11 @@ import {
   images,
 } from "@/components/site";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Us — Vijaya Lakshmi Infra" },
-      {
-        name: "description",
-        content: "Our journey, leadership and values in electrical and civil infrastructure.",
-      },
-      { property: "og:title", content: "About Vijaya Lakshmi Infra" },
-      {
-        property: "og:description",
-        content: "Engineering reliable infrastructure across India since 2014.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
-  component: About,
-});
+export default function About() {
+  useEffect(() => {
+    document.title = "About Us — Vijaya Lakshmi Infra";
+  }, []);
 
-function About() {
   const values = [
     [ShieldCheck, "Safety First", "Zero compromise on field safety protocols and risk mitigation."],
     [

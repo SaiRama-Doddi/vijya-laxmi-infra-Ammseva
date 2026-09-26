@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import {
   ArrowRight,
   Award,
@@ -483,7 +483,8 @@ export function FreeConsultancyModal({
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const location = useLocation();
+  const pathname = location.pathname;
   useEffect(() => setOpen(false), [pathname]);
 
   return (
@@ -498,9 +499,11 @@ export function Header() {
             <Link
               key={to}
               to={to}
-              activeOptions={{ exact: to === "/" }}
-              className="nav-link text-slate-700 hover:text-primary transition-colors"
-              activeProps={{ className: "nav-link is-active text-primary font-bold" }}
+              className={`nav-link text-slate-700 hover:text-primary transition-colors ${
+                (to === "/" ? pathname === "/" : pathname.startsWith(to))
+                  ? "is-active text-primary font-bold"
+                  : ""
+              }`}
             >
               {label}
             </Link>

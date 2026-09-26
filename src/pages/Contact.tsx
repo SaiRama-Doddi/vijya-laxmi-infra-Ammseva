@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import {
   Mail,
   MapPin,
@@ -11,33 +11,15 @@ import {
   RefreshCw,
   Clock,
 } from "lucide-react";
-import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { PageHero, SectionTitle, WhatsAppIcon, images } from "@/components/site";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact Vijaya Lakshmi Infra" },
-      {
-        name: "description",
-        content: "Discuss your next electrical or civil infrastructure project with our team.",
-      },
-      { property: "og:title", content: "Contact — Vijaya Lakshmi Infra" },
-      {
-        property: "og:description",
-        content: "Let's build reliable infrastructure together.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-  component: Contact,
-});
+export default function Contact() {
+  useEffect(() => {
+    document.title = "Contact Vijaya Lakshmi Infra";
+  }, []);
 
-function Contact() {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",

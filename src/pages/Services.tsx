@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef, type ElementType } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, LucideIcon } from "lucide-react";
 import {
@@ -17,31 +16,6 @@ import executionImg from "@/assets/process/execution.jpg";
 import testingImg from "@/assets/process/testing.jpg";
 import commissioningImg from "@/assets/process/commissioning.jpg";
 import handoverImg from "@/assets/process/handover.jpg";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Electrical & Civil Services — Vijaya Lakshmi Infra" },
-      {
-        name: "description",
-        content:
-          "Transmission lines, substations, utility shifting and civil infrastructure services.",
-      },
-      {
-        property: "og:title",
-        content: "Infrastructure Services — Vijaya Lakshmi Infra",
-      },
-      {
-        property: "og:description",
-        content: "Turnkey electrical and civil engineering capabilities across India.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
-  }),
-  component: Services,
-});
 
 function ServiceCardsCarousel({
   items,
@@ -199,7 +173,11 @@ function ServiceCardsCarousel({
   );
 }
 
-function Services() {
+export default function Services() {
+  useEffect(() => {
+    document.title = "Electrical & Civil Services — Vijaya Lakshmi Infra";
+  }, []);
+
   const detail = [
     "Survey & Route Planning",
     "Detailed Engineering & Blueprints",

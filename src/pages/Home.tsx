@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,32 +11,11 @@ import {
   images,
 } from "@/components/site";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Vijaya Lakshmi Infra — Electrical & Civil Contractors" },
-      {
-        name: "description",
-        content:
-          "Powering India with transmission, substations, utility shifting and civil infrastructure solutions since 2014.",
-      },
-      {
-        property: "og:title",
-        content: "Vijaya Lakshmi Infra — Electrical & Civil Contractors",
-      },
-      {
-        property: "og:description",
-        content: "Engineering excellence in infrastructure development across India.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
-  component: Home,
-});
+export default function Home() {
+  useEffect(() => {
+    document.title = "Vijaya Lakshmi Infra — Electrical & Civil Contractors";
+  }, []);
 
-function Home() {
   return (
     <>
       {/* Hero Section */}
@@ -134,8 +114,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-
 
       {/* Why Choose Us */}
       <section className="section-pad overflow-hidden">

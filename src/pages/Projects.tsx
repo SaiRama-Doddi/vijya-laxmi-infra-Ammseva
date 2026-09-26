@@ -1,28 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { PageHero, ProjectCards, SectionTitle, images } from "@/components/site";
 
-export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Infrastructure Projects — Vijaya Lakshmi Infra" },
-      {
-        name: "description",
-        content: "Power and civil infrastructure projects delivered with engineering precision.",
-      },
-      { property: "og:title", content: "Projects — Vijaya Lakshmi Infra" },
-      {
-        property: "og:description",
-        content: "Selected transmission, substation and utility shifting projects.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/projects" }],
-  }),
-  component: Projects,
-});
+export default function Projects() {
+  useEffect(() => {
+    document.title = "Infrastructure Projects — Vijaya Lakshmi Infra";
+  }, []);
 
-function Projects() {
   const milestones = [
     ["2014", "Enterprise established with initial regional electrical contracts"],
     ["2018", "Expanded high-voltage transmission and distribution portfolio"],
