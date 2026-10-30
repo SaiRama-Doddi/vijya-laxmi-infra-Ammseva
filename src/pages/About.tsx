@@ -95,10 +95,12 @@ export default function About() {
             center
           />
           <div className="relative mx-auto mt-6 sm:mt-8 grid max-w-6xl gap-5 sm:gap-6 md:grid-cols-3">
-            {journey.map((item) => (
+            {journey.map((item, idx) => (
               <article
                 key={item.year}
-                className="group relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-slate-200/90 bg-card p-6 sm:p-7 shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-premium"
+                className={`group relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-slate-200/90 bg-card p-6 sm:p-7 shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-premium ${
+                  idx % 3 === 0 ? "reveal-left" : idx % 3 === 1 ? "reveal-up" : "reveal-right"
+                }`}
               >
                 <span className="pointer-events-none absolute -right-3 -top-3 select-none font-numbers text-6xl sm:text-7xl font-black text-slate-100 transition-colors duration-500 group-hover:text-primary/10">
                   {item.year === "Today" ? "★" : item.year}
@@ -121,7 +123,7 @@ export default function About() {
                     <h3 className="mt-1.5 font-display text-base sm:text-lg font-bold text-navy">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground text-justify sm:text-left">
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground text-justify">
                       {item.desc}
                     </p>
                   </div>
@@ -141,15 +143,15 @@ export default function About() {
           <img
             src={images.substationImage}
             alt="Electrical substation infrastructure"
-            className="h-[380px] sm:h-[440px] w-full rounded-card object-cover shadow-premium"
+            className="h-[380px] sm:h-[440px] w-full rounded-card object-cover shadow-premium reveal-left"
           />
-          <div className="flex flex-col items-start justify-center">
+          <div className="flex flex-col items-start justify-center reveal-right">
             <SectionTitle
               eyebrow="Company overview"
               title="Engineering capability that moves India forward"
               copy="Established in 2014 as Vijaya Lakshmi Enterprises, our journey began as a specialized electrical contracting firm. Over the years, we expanded our expertise and rebranded as Vijaya Lakshmi Infra in 2021. Today, we stand as a premier infrastructure development company, delivering comprehensive electrical, civil, and engineering solutions for critical infrastructure projects across India."
             />
-            <p className="mt-3 leading-relaxed text-sm sm:text-base text-muted-foreground text-justify sm:text-left">
+            <p className="mt-3 leading-relaxed text-sm sm:text-base text-muted-foreground text-justify">
               We specialize in design, erection, shifting, and commissioning of High-Tension (HT) & Low-Tension (LT)
               power lines, substations, distribution transformer structures, and mini towers. Our holistic approach
               ensures seamless coordination with government agencies, utility providers, and private clients,
@@ -176,7 +178,7 @@ export default function About() {
       <section className="section-pad bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-5 md:grid-cols-2">
-            <article className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-6 sm:p-8 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium">
+            <article className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-6 sm:p-8 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium reveal-left">
               <div>
                 <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary-soft text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                   <Eye className="h-6 w-6" />
@@ -184,14 +186,14 @@ export default function About() {
                 <h2 className="mt-5 font-display text-xl sm:text-2xl font-bold text-navy">
                   Our Vision
                 </h2>
-                <p className="mt-3 leading-relaxed text-sm sm:text-base text-muted-foreground text-justify sm:text-left">
+                <p className="mt-3 leading-relaxed text-sm sm:text-base text-muted-foreground text-justify">
                   To be a trusted leader in infrastructure development, consistently exceeding
                   client expectations through excellence in engineering, safety, and service
                   quality.
                 </p>
               </div>
             </article>
-            <article className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-6 sm:p-8 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium">
+            <article className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-6 sm:p-8 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium reveal-right">
               <div>
                 <span className="grid h-12 w-12 place-items-center rounded-xl bg-destructive/10 text-destructive transition group-hover:bg-destructive group-hover:text-destructive-foreground">
                   <Target className="h-6 w-6" />
@@ -199,7 +201,7 @@ export default function About() {
                 <h2 className="mt-5 font-display text-xl sm:text-2xl font-bold text-navy">
                   Our Mission
                 </h2>
-                <p className="mt-3 leading-relaxed text-sm sm:text-base text-muted-foreground text-justify sm:text-left">
+                <p className="mt-3 leading-relaxed text-sm sm:text-base text-muted-foreground text-justify">
                   To deliver high-quality infrastructure projects safely and on time, adhering to
                   the highest industry standards while building long-term relationships based on
                   trust, performance, and reliability.

@@ -152,7 +152,7 @@ export default function ProjectDetail() {
 
           <div className="grid gap-10 lg:grid-cols-12 items-start">
             {/* Left Column: Image, Detailed Description, Scope */}
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8 space-y-8 reveal-left">
               {/* Featured Project Image */}
               <div className="relative overflow-hidden rounded-2xl border border-border shadow-card">
                 <img
@@ -178,7 +178,7 @@ export default function ProjectDetail() {
                   </h2>
                 </div>
 
-                <p className="text-base sm:text-lg leading-relaxed text-slate-700 font-normal">
+                <p className="text-base sm:text-lg leading-relaxed text-slate-700 font-normal text-justify">
                   {project.scope}
                 </p>
 
@@ -187,7 +187,7 @@ export default function ProjectDetail() {
                     <h3 className="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-1.5 mb-2">
                       <Zap className="h-4 w-4" /> Electrical Infrastructure
                     </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed text-justify">
                       Erection and shifting of HT/LT power distribution lines, installation of
                       Distribution Transformer (DTR) centers, and intermediate baby towers
                       satisfying DISCOM specifications.
@@ -198,7 +198,7 @@ export default function ProjectDetail() {
                     <h3 className="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-1.5 mb-2">
                       <ShieldCheck className="h-4 w-4" /> Safety & Clearances
                     </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed text-justify">
                       Adherence to NHAI Right of Way (ROW) parameters, highway expansion line
                       clearance norms, shutdown coordination, and statutory power supply safety
                       standards.
@@ -233,7 +233,7 @@ export default function ProjectDetail() {
             </div>
 
             {/* Right Column: Project Dossier / Agreement Details Card */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="lg:col-span-4 space-y-6 reveal-right">
               {/* Official Credentials Dossier */}
               <div className="rounded-2xl border-2 border-primary/20 bg-card overflow-hidden shadow-premium">
                 <div className="bg-navy p-5 text-white">

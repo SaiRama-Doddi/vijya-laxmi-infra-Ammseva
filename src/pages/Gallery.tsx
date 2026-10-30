@@ -213,7 +213,7 @@ export default function Gallery() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl mx-auto leading-tight">
               Field Execution & Project Site Gallery
             </h1>
-            <p className="mt-3.5 max-w-2xl mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="mt-3.5 max-w-2xl mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
               Authentic on-site photographs reproduced from company profile documents, capturing cable
               terminations, tower erection, highway utility corridors, and substation works.
             </p>
@@ -255,7 +255,13 @@ export default function Gallery() {
               <div
                 key={item.id}
                 onClick={() => setSelectedImageIndex(idx)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-slate-900 shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-primary/50 aspect-4/3"
+                className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-slate-900 shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-primary/50 aspect-4/3 ${
+                  idx % 3 === 0
+                    ? "reveal-left"
+                    : idx % 3 === 1
+                    ? (idx % 2 === 0 ? "reveal-down" : "reveal-up")
+                    : "reveal-right"
+                }`}
               >
                 {/* Pristine HD Image */}
                 <img

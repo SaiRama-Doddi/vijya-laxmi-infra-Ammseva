@@ -130,7 +130,7 @@ function ServiceCardsCarousel({
                 <h3 className="mt-4 font-display text-base sm:text-lg font-bold text-navy leading-snug group-hover:text-primary transition-colors line-clamp-2">
                   {title}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground text-left line-clamp-3">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground text-justify line-clamp-3">
                   {desc}
                 </p>
               </div>
@@ -290,7 +290,7 @@ export default function Services() {
       {/* Lifecycle Accordion Section */}
       <section className="section-pad bg-primary-soft">
         <div className="mx-auto grid max-w-7xl items-start gap-8 lg:grid-cols-2 lg:gap-12 px-5 lg:px-8">
-          <div className="flex flex-col justify-between h-full">
+          <div className="flex flex-col justify-between h-full reveal-left">
             <SectionTitle
               eyebrow="Detailed services"
               title="Capability across the complete project lifecycle"
@@ -327,7 +327,7 @@ export default function Services() {
           <Accordion
             type="single"
             collapsible
-            className="rounded-card bg-background p-5 sm:p-6 shadow-card border border-border"
+            className="rounded-card bg-background p-5 sm:p-6 shadow-card border border-border reveal-right"
           >
             {detail.map((x, i) => (
               <AccordionItem value={x} key={x}>
@@ -357,10 +357,12 @@ export default function Services() {
 
           {/* Desktop 7-Column Grid View (hidden on mobile/tablet) */}
           <div className="mt-8 hidden lg:grid lg:grid-cols-7 lg:gap-3.5">
-            {processSteps.map((step) => (
+            {processSteps.map((step, idx) => (
               <article
                 key={step.step}
-                className="group relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-slate-200/90 bg-card p-3.5 text-center shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-premium"
+                className={`group relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-slate-200/90 bg-card p-3.5 text-center shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-premium ${
+                  idx % 2 === 0 ? "reveal-down" : "reveal-up"
+                }`}
               >
                 <div className="flex flex-col items-center">
                   <span className="inline-flex items-center rounded-full bg-primary-soft px-2.5 py-0.5 font-numbers text-[11px] font-extrabold tracking-wider text-primary">

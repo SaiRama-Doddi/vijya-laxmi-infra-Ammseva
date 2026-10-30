@@ -44,14 +44,14 @@ export default function Projects() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl mx-auto leading-tight">
               Selected Highway Utility Shifting, HT/LT Line Works & Rural Feeder Segregation Projects
             </h1>
-            <p className="mt-3.5 max-w-3xl mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="mt-3.5 max-w-3xl mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
               Demonstrated engineering execution across 10 major high-capacity national highway corridors,
               expressways, and government-tendered RDSS rural electrification contracts.
             </p>
 
             {/* 3 Metric Badges */}
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs">
+              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs reveal-left">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-white">
                   <FileCheck className="h-6 w-6" />
                 </div>
@@ -61,7 +61,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs">
+              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs reveal-down">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy text-gold">
                   <Route className="h-6 w-6" />
                 </div>
@@ -71,7 +71,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs">
+              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs reveal-right">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gold text-navy">
                   <Zap className="h-6 w-6" />
                 </div>
@@ -97,16 +97,18 @@ export default function Projects() {
             light
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {milestones.map(([year, desc]) => (
+            {milestones.map(([year, desc], idx) => (
               <article
-                className="flex flex-col justify-between border-l-2 border-gold pl-4 py-1.5"
+                className={`flex flex-col justify-between border-l-2 border-gold pl-4 py-1.5 ${
+                  idx % 2 === 0 ? "reveal-left" : "reveal-right"
+                }`}
                 key={year}
               >
                 <div>
                   <strong className="font-numbers text-2xl sm:text-3xl text-primary-foreground font-extrabold">
                     {year}
                   </strong>
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-primary-foreground/75 text-justify sm:text-left">
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-primary-foreground/75 text-justify">
                     {desc}
                   </p>
                 </div>
@@ -126,9 +128,17 @@ export default function Projects() {
             center
           />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-6">
-            {clients.map((c) => (
+            {clients.map((c, idx) => (
               <div
-                className="flex flex-col justify-center rounded-xl border border-border bg-card p-5 text-center shadow-card transition-all hover:-translate-y-0.5 hover:border-primary/50"
+                className={`flex flex-col justify-center rounded-xl border border-border bg-card p-5 text-center shadow-card transition-all hover:-translate-y-0.5 hover:border-primary/50 ${
+                  idx % 4 === 0
+                    ? "reveal-left"
+                    : idx % 4 === 1
+                    ? "reveal-up"
+                    : idx % 4 === 2
+                    ? "reveal-down"
+                    : "reveal-right"
+                }`}
                 key={c.name}
               >
                 <span className="font-display text-sm font-extrabold tracking-wide text-navy">

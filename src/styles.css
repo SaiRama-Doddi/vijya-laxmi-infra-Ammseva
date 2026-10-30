@@ -263,10 +263,68 @@
   animation-play-state: paused;
 }
 
+/* Content Justification */
+.section-pad p,
+article p,
+.card p,
+.prose p,
+.text-justify,
+.scope-text,
+.content-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Scroll-driven directional transitions (scrolling up & down) */
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-down {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition-property: opacity, transform;
+  transition-duration: 0.75s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left {
+  transform: translate3d(-36px, 0, 0);
+}
+
+.reveal-right {
+  transform: translate3d(36px, 0, 0);
+}
+
+.reveal-up {
+  transform: translate3d(0, 36px, 0);
+}
+
+.reveal-down {
+  transform: translate3d(0, -36px, 0);
+}
+
+/* Revealed active state (when in viewport) */
+.reveal-left.is-revealed,
+.reveal-right.is-revealed,
+.reveal-up.is-revealed,
+.reveal-down.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
   }
 }

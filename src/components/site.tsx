@@ -828,6 +828,53 @@ export function StickyContactActions() {
 }
 
 export function SiteShell({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const selector = ".reveal-left, .reveal-right, .reveal-up, .reveal-down";
+    const observedElements = new Set<Element>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+          } else {
+            // When scrolling out of view (both scrolling up and down), remove is-revealed so it re-triggers
+            entry.target.classList.remove("is-revealed");
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "30px 0px -30px 0px",
+      }
+    );
+
+    const scanAndObserve = () => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach((el) => {
+        if (!observedElements.has(el)) {
+          observer.observe(el);
+          observedElements.add(el);
+        }
+      });
+    };
+
+    scanAndObserve();
+
+    const mutObserver = new MutationObserver(() => {
+      scanAndObserve();
+    });
+
+    mutObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutObserver.disconnect();
+    };
+  }, [pathname]);
+
   return (
     <>
       <Header />
@@ -885,7 +932,7 @@ export function SectionTitle({
       {copy && (
         <p
           className={`mt-2.5 sm:mt-3 leading-relaxed text-sm sm:text-base max-w-3xl lg:max-w-4xl ${
-            center ? "text-center" : "text-justify sm:text-left"
+            center ? "text-center" : "text-justify"
           } ${light ? "text-primary-foreground/80" : "text-muted-foreground"}`}
         >
           {copy}
@@ -1127,7 +1174,7 @@ export function FeatureGrid({
                   <Icon className="h-16 w-16" />
                 </span>
                 <h3 className="mt-5 font-display text-lg font-bold text-navy">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-left line-clamp-3">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-justify line-clamp-3">
                   {desc ||
                     "Disciplined planning, qualified teams and dependable delivery across every project stage."}
                 </p>
@@ -1145,17 +1192,19 @@ export function FeatureGrid({
 
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map(([Icon, title, desc]) => (
+      {items.map(([Icon, title, desc], i) => (
         <article
           key={title}
-          className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-7 shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-premium"
+          className={`group flex flex-col justify-between h-full rounded-card border border-border bg-card p-7 shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-premium ${
+            i % 3 === 0 ? "reveal-left" : i % 3 === 1 ? "reveal-up" : "reveal-right"
+          }`}
         >
           <div className="flex flex-col items-start">
             <span className="grid h-16 w-16 place-items-center text-primary transition-transform duration-300 group-hover:scale-110">
               <Icon className="h-16 w-16" />
             </span>
             <h3 className="mt-5 font-display text-lg font-bold text-navy">{title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-justify sm:text-left">
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-justify">
               {desc ||
                 "Disciplined planning, qualified teams and dependable delivery across every project stage."}
             </p>
@@ -1506,10 +1555,12 @@ export function ProjectCards({
       )}
 
       <div className="grid gap-6 md:grid-cols-2">
-        {displayList.map((p) => (
+        {displayList.map((p, i) => (
           <article
             key={p.id}
-            className="group flex flex-col justify-between h-full overflow-hidden rounded-card bg-card shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium border border-border/80"
+            className={`group flex flex-col justify-between h-full overflow-hidden rounded-card bg-card shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium border border-border/80 ${
+              i % 2 === 0 ? "reveal-left" : "reveal-right"
+            }`}
           >
             <div>
               <Link to={`/projects/${p.id}`} className="block relative h-60 sm:h-64 overflow-hidden cursor-pointer">
@@ -1560,7 +1611,7 @@ export function ProjectCards({
                   </Link>
                 </h3>
 
-                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3 text-justify">
                   {p.scope}
                 </p>
 

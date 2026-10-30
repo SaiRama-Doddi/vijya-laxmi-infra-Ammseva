@@ -62,10 +62,18 @@ export default function Home() {
             ["10+", "Infrastructure Projects"],
             ["33/11kV", "Power Infrastructure"],
             ["Pan India", "Services"],
-          ] as const).map(([val, label]) => (
+          ] as const).map(([val, label], idx) => (
             <div
               key={label}
-              className="group flex flex-col justify-center items-center text-center sm:items-start sm:text-left rounded-card border border-border/80 bg-card p-5 sm:p-6 shadow-premium transition duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl"
+              className={`group flex flex-col justify-center items-center text-center sm:items-start sm:text-left rounded-card border border-border/80 bg-card p-5 sm:p-6 shadow-premium transition duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl ${
+                idx === 0
+                  ? "reveal-left"
+                  : idx === 1
+                  ? "reveal-down"
+                  : idx === 2
+                  ? "reveal-up"
+                  : "reveal-right"
+              }`}
             >
               <strong className="font-numbers text-xl font-extrabold text-primary sm:text-2xl lg:text-3xl">
                 <AnimatedCounter value={val} />
@@ -81,7 +89,7 @@ export default function Home() {
       {/* About Overview Section */}
       <section className="section-pad pt-6 sm:pt-8">
         <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-12 px-5 lg:px-8">
-          <div className="relative">
+          <div className="relative reveal-left">
             <img
               src={images.engineersImage}
               alt="Infrastructure engineers reviewing project plans"
@@ -95,13 +103,13 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col items-start justify-center">
+          <div className="flex flex-col items-start justify-center reveal-right">
             <SectionTitle
               eyebrow="About Vijaya Lakshmi Infra"
               title="Building Networks That Keep India Moving"
               copy="Established in 2014 as Vijaya Lakshmi Enterprises, our journey began as a specialized electrical contracting firm, rebranding as Vijaya Lakshmi Infra in 2021 as a premier infrastructure development company across India."
             />
-            <p className="leading-relaxed text-sm text-muted-foreground text-justify sm:text-left">
+            <p className="leading-relaxed text-sm text-muted-foreground text-justify">
               We specialize in design, erection, shifting, and commissioning of High-Tension (HT) &
               Low-Tension (LT) power lines, substations, distribution transformer structures, and
               mini towers, ensuring seamless coordination with government agencies and utility providers.
