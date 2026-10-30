@@ -122,6 +122,7 @@ const links = [
   ["About", "/about"],
   ["Services", "/services"],
   ["Projects", "/projects"],
+  ["Gallery", "/gallery"],
   ["Contact", "/contact"],
 ] as const;
 
