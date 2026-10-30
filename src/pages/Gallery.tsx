@@ -26,7 +26,7 @@ import substationYardImg from "@/assets/gallery/substation-yard.jpg";
 import civilFoundationsImg from "@/assets/gallery/civil-foundations.jpg";
 import fieldEngineersImg from "@/assets/gallery/field-engineers.jpg";
 
-export interface GalleryItem {
+interface GalleryItem {
   id: string;
   title: string;
   subtitle: string;
@@ -37,7 +37,7 @@ export interface GalleryItem {
   tags: string[];
 }
 
-export const galleryItems: GalleryItem[] = [
+const galleryItems: GalleryItem[] = [
   {
     id: "cable-termination",
     title: "Cable Termination Preparation",
@@ -249,74 +249,54 @@ export default function Gallery() {
             </div>
           </div>
 
-          {/* Masonry-Style Image Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Premium Image-Only Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {filteredItems.map((item, idx) => (
-              <article
+              <div
                 key={item.id}
                 onClick={() => setSelectedImageIndex(idx)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium flex flex-col justify-between"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-slate-900 shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-primary/50 aspect-4/3"
               >
-                {/* Image Container with HD Badge */}
-                <div className="relative overflow-hidden bg-slate-900 aspect-4/3">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-108"
-                  />
+                {/* Pristine HD Image */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
 
-                  {/* Top Badges */}
-                  <div className="absolute left-3.5 top-3.5 flex items-center gap-2">
-                    <span className="rounded-md bg-navy/90 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-gold backdrop-blur-xs shadow-sm">
-                      HD 1080p
-                    </span>
-                    <span className="rounded-md bg-white/90 px-2.5 py-1 text-[11px] font-bold text-navy backdrop-blur-xs shadow-sm">
+                {/* Subtle HD badge on top right */}
+                <div className="absolute right-3.5 top-3.5 opacity-90 transition-opacity duration-300 group-hover:opacity-100">
+                  <span className="rounded-full bg-navy/85 border border-white/20 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-gold backdrop-blur-md shadow-md">
+                    HD
+                  </span>
+                </div>
+
+                {/* Hover Overlay: Premium Dark Gradient with Title, Category, and Center Zoom Icon */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/50 to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100 flex flex-col justify-between p-5 backdrop-blur-[2px]">
+                  {/* Category Pill Top Left */}
+                  <div className="transform -translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <span className="rounded-full bg-primary/90 px-3 py-1 text-[11px] font-bold text-white shadow-sm">
                       {item.category}
                     </span>
                   </div>
 
-                  {/* Hover Overlay with Zoom Icon */}
-                  <div className="absolute inset-0 bg-navy/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center backdrop-blur-xs">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-navy shadow-xl transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                      <Maximize2 className="h-5 w-5" />
-                    </div>
+                  {/* Center Zoom Button */}
+                  <div className="self-center flex h-12 w-12 items-center justify-center rounded-full bg-gold/90 text-navy shadow-xl transform scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 hover:bg-gold">
+                    <Maximize2 className="h-5 w-5" />
                   </div>
-                </div>
 
-                {/* Content Description */}
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-destructive shrink-0" />
-                      <span className="truncate font-medium">{item.location}</span>
-                    </div>
-
-                    <h3 className="font-display text-base font-bold text-navy group-hover:text-primary transition-colors leading-snug">
+                  {/* Title & Location at bottom */}
+                  <div className="transform translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <h3 className="font-display text-sm sm:text-base font-bold text-white leading-snug line-clamp-1">
                       {item.title}
                     </h3>
-
-                    <p className="mt-2 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-                      {item.subtitle}
+                    <p className="mt-1 text-xs text-white/70 line-clamp-1">
+                      {item.location}
                     </p>
                   </div>
-
-                  {/* Tags */}
-                  <div className="mt-3.5 pt-3 border-t border-border/60 flex flex-wrap gap-1.5">
-                    {item.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded bg-primary-soft/80 px-2 py-0.5 text-[10px] font-semibold text-primary"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    <span className="text-[11px] font-bold text-primary ml-auto flex items-center gap-1 group-hover:underline">
-                      Enlarge <ZoomIn className="h-3 w-3" />
-                    </span>
-                  </div>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
 
