@@ -1445,7 +1445,6 @@ export function ProjectCards({
   showFilters?: boolean;
 }) {
   const [filter, setFilter] = useState<string>("All");
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   const categories = [
     { label: "All Projects", value: "All", count: projects.length },
@@ -1512,7 +1511,7 @@ export function ProjectCards({
             className="group flex flex-col justify-between h-full overflow-hidden rounded-card bg-card shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium border border-border/80"
           >
             <div>
-              <div className="relative h-60 sm:h-64 overflow-hidden">
+              <Link to={`/projects/${p.id}`} className="block relative h-60 sm:h-64 overflow-hidden cursor-pointer">
                 <img
                   src={p.image}
                   alt={p.title}
@@ -1541,7 +1540,7 @@ export function ProjectCards({
                 <span className="absolute right-4 top-4 max-w-[200px] truncate rounded-full bg-primary/90 px-3 py-1 text-xs font-bold text-primary-foreground backdrop-blur-xs shadow-sm">
                   {p.client}
                 </span>
-              </div>
+              </Link>
 
               <div className="p-5 sm:p-6">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
@@ -1554,8 +1553,10 @@ export function ProjectCards({
                   </span>
                 </div>
 
-                <h3 className="mt-3 font-display text-lg sm:text-xl font-bold text-navy leading-snug group-hover:text-primary transition-colors">
-                  {p.title}
+                <h3 className="mt-3 font-display text-lg sm:text-xl font-bold text-navy leading-snug">
+                  <Link to={`/projects/${p.id}`} className="hover:text-primary transition-colors">
+                    {p.title}
+                  </Link>
                 </h3>
 
                 <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3">
@@ -1601,119 +1602,13 @@ export function ProjectCards({
                 {p.chainage ? p.chainage : "Turnkey Execution"}
               </span>
 
-              {/* Dialog Trigger */}
-              <Dialog>
-                <DialogTrigger asChild>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedProject(p)}
-                    className="text-xs font-bold text-primary inline-flex items-center gap-1 hover:text-navy cursor-pointer transition-colors"
-                  >
-                    View Scope & Details <ArrowRight className="h-3.5 w-3.5" />
-                  </button>
-                </DialogTrigger>
-
-                <DialogContent className="sm:max-w-xl max-h-[90vh] overflow-y-auto">
-                  <DialogHeader>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="rounded bg-navy px-2 py-0.5 font-numbers text-xs font-bold text-gold">
-                        PROJECT #{p.no}
-                      </span>
-                      <span
-                        className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
-                          p.status === "Completed"
-                            ? "bg-emerald-100 text-emerald-800"
-                            : "bg-amber-100 text-amber-800"
-                        }`}
-                      >
-                        {p.status}
-                      </span>
-                    </div>
-                    <DialogTitle className="text-xl font-bold text-navy">
-                      {p.title}
-                    </DialogTitle>
-                    <DialogDescription className="text-xs font-semibold text-primary uppercase tracking-wider">
-                      {p.category}
-                    </DialogDescription>
-                  </DialogHeader>
-
-                  <div className="mt-4 space-y-4 text-sm">
-                    <div className="relative h-44 overflow-hidden rounded-lg">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold text-navy text-xs uppercase tracking-wider">
-                        Scope of Work & Specification
-                      </h4>
-                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                        {p.scope}
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 rounded-lg border border-border bg-primary-soft/40 p-3.5 text-xs">
-                      <div>
-                        <span className="font-semibold text-slate-500 block">Client</span>
-                        <span className="font-bold text-navy">{p.client}</span>
-                        <span className="block text-slate-600 text-[11px] mt-0.5">
-                          {p.clientLocation}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-500 block">Work Location</span>
-                        <span className="font-bold text-navy">{p.location}</span>
-                        {p.chainage && (
-                          <span className="block text-primary text-[11px] mt-0.5 font-medium">
-                            {p.chainage}
-                          </span>
-                        )}
-                      </div>
-                      <div className="sm:col-span-2 pt-2 border-t border-border/50">
-                        <span className="font-semibold text-slate-500 block">
-                          Agreement / Work Order Reference
-                        </span>
-                        <span className="font-mono text-xs font-bold text-navy break-all">
-                          {p.agreement}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-500 block">Execution Date</span>
-                        <span className="font-bold text-navy font-numbers">{p.date}</span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-500 block">Status</span>
-                        <span
-                          className={`font-bold ${
-                            p.status === "Completed" ? "text-emerald-600" : "text-amber-600"
-                          }`}
-                        >
-                          {p.status}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <span className="font-semibold text-slate-500 block text-xs mb-1.5">
-                        Key Features & Highlights
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {p.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-md bg-primary/10 text-primary px-2.5 py-1 text-xs font-medium"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </DialogContent>
-              </Dialog>
+              <Link
+                to={`/projects/${p.id}`}
+                className="text-xs font-bold text-primary inline-flex items-center gap-1.5 hover:text-navy cursor-pointer transition-colors group/btn"
+              >
+                View Scope & Details{" "}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
+              </Link>
             </div>
           </article>
         ))}
