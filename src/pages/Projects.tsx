@@ -1,42 +1,89 @@
 import { useEffect } from "react";
 import { PageHero, ProjectCards, SectionTitle, images } from "@/components/site";
+import { Route, Zap, FileCheck, CheckCircle2 } from "lucide-react";
 
 export default function Projects() {
   useEffect(() => {
-    document.title = "Infrastructure Projects — Vijaya Lakshmi Infra";
+    document.title = "Project Experience — Vijaya Lakshmi Infra";
   }, []);
 
   const milestones = [
     ["2014", "Enterprise established with initial regional electrical contracts"],
-    ["2018", "Expanded high-voltage transmission and distribution portfolio"],
-    ["2021", "Vijaya Lakshmi Infra launched for large-scale multi-state EPC execution"],
-    ["2026", "Full pan-India turnkey capability across power & civil infrastructure"],
+    ["2019", "Executed milestone NH-227 road-widening utility corridor subcontract"],
+    ["2021", "Expanded into major Expressways (Bangalore–Chennai Expressway) and NH-45A"],
+    ["2022–2026", "Key partner for TANGEDCO RDSS feeder segregation and multi-lane highway EPC works"],
   ] as const;
 
   const clients = [
-    "TSSPDCL",
-    "NATIONAL HIGHWAYS",
-    "STATE HIGHWAYS",
-    "PRIVATE INFRASTRUCTURE",
+    { name: "TANGEDCO", role: "RDSS Agri Feeder Schemes", state: "Tamil Nadu" },
+    { name: "DILIP BUILDCON LTD", role: "NH-332 Packages I & II", state: "Madhya Pradesh / TN" },
+    { name: "EKK INFRASTRUCTURE", role: "NH-205 & NH-716B Corridors", state: "Kerala / TN" },
+    { name: "SRR PROJECTS", role: "NH-227 Road Widening", state: "Tamil Nadu" },
+    { name: "RCCL SRIKANCHE", role: "Bangalore–Chennai Expressway", state: "Tamil Nadu" },
+    { name: "RR INFRA", role: "CPRR Six-Lane Expressway", state: "Tamil Nadu" },
+    { name: "P & C PROJECTS", role: "NH-48 Four-Laning Package", state: "Tamil Nadu" },
+    { name: "NHAI CORRIDORS", role: "National Highway Networks", state: "Pan-South India" },
   ] as const;
 
   return (
     <>
       <PageHero
-        title="Projects Delivered with Engineering Precision"
-        eyebrow="Projects"
+        title="Project Experience & Engineering Credentials"
+        eyebrow="Portfolio & Case Studies"
         image={images.civilImage}
       />
 
       {/* Featured Projects Grid */}
       <section className="section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionTitle
-            eyebrow="Featured portfolio"
-            title="Infrastructure that performs in the real world"
-            copy="Selected assignments across high-voltage transmission lines, 33/11kV substations, underground XLPE networks, and critical highway utility realignment."
-          />
-          <ProjectCards />
+          {/* Executive Header Banner matching user specification */}
+          <div className="mb-10 text-center">
+            <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-primary mb-3">
+              PROJECT EXPERIENCE
+            </span>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl mx-auto leading-tight">
+              Selected Highway Utility Shifting, HT/LT Line Works & Rural Feeder Segregation Projects
+            </h1>
+            <p className="mt-3.5 max-w-3xl mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Demonstrated engineering execution across 10 major high-capacity national highway corridors,
+              expressways, and government-tendered RDSS rural electrification contracts.
+            </p>
+
+            {/* 3 Metric Badges */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-white">
+                  <FileCheck className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="font-numbers text-xl font-extrabold text-navy">10 PROJECTS</div>
+                  <div className="text-xs text-muted-foreground font-medium">Documented Subcontracts</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy text-gold">
+                  <Route className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="font-numbers text-lg font-extrabold text-navy">HIGHWAY CORRIDORS</div>
+                  <div className="text-xs text-muted-foreground font-medium">NHAI, NH-48, NH-332, CPRR</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gold text-navy">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="font-numbers text-lg font-extrabold text-navy">HT/LT & RDSS</div>
+                  <div className="text-xs text-muted-foreground font-medium">TANGEDCO Feeder Segregation</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ProjectCards showFilters={true} />
         </div>
       </section>
 
@@ -44,9 +91,9 @@ export default function Projects() {
       <section className="section-pad bg-navy">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionTitle
-            eyebrow="2014–2026"
-            title="An infrastructure journey built milestone by milestone"
-            copy="Consistent track record of technical competence, client trust, and timely project handovers."
+            eyebrow="2014–2026 Timeline"
+            title="A proven track record built milestone by milestone"
+            copy="Consistent growth in contract scale, technical capability, and client trust across southern India."
             light
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -73,18 +120,22 @@ export default function Projects() {
       <section className="section-pad bg-primary-soft">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
           <SectionTitle
-            eyebrow="Project ecosystem"
-            title="Trusted across public and private infrastructure"
-            copy="Delivering reliable execution in partnership with state discoms, highway authorities, and premier EPC contractors."
+            eyebrow="Project Ecosystem & Clients"
+            title="Trusted by India's Top EPC & Power Authorities"
+            copy="Delivering reliable subcontract execution in partnership with state distribution corporations, national highway authorities, and Tier-1 infrastructure firms."
             center
           />
-          <div className="grid gap-px overflow-hidden rounded-card bg-border sm:grid-cols-2 lg:grid-cols-4 shadow-card">
-            {clients.map((client) => (
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-6">
+            {clients.map((c) => (
               <div
-                className="flex h-24 sm:h-28 items-center justify-center bg-background px-5 text-center font-display text-xs sm:text-sm font-extrabold tracking-wider text-navy hover:text-primary transition-colors"
-                key={client}
+                className="flex flex-col justify-center rounded-xl border border-border bg-card p-5 text-center shadow-card transition-all hover:-translate-y-0.5 hover:border-primary/50"
+                key={c.name}
               >
-                {client}
+                <span className="font-display text-sm font-extrabold tracking-wide text-navy">
+                  {c.name}
+                </span>
+                <span className="mt-1 text-xs font-semibold text-primary">{c.role}</span>
+                <span className="mt-0.5 text-[11px] text-muted-foreground">{c.state}</span>
               </div>
             ))}
           </div>

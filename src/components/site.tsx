@@ -5,15 +5,19 @@ import {
   Bolt,
   Building2,
   Cable,
+  Calendar,
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
   Clock3,
   Construction,
   DraftingCompass,
+  ExternalLink,
   Facebook,
+  FileText,
   Instagram,
   Landmark,
+  Layers,
   Linkedin,
   Loader2,
   LucideIcon,
@@ -1243,66 +1247,478 @@ export const serviceItems = [
   ],
 ] as const;
 
-export const projects = [
-  ["11kV Bay Extension & 5km Transmission Line", "TSSPDCL", "Hyderabad", "Transmission"],
-  ["15km 11kV Transmission Line", "TSSPDCL", "Hyderabad", "Transmission"],
-  ["33/11kV Substation — Cherlapally", "TSSPDCL", "Cherlapally", "Substation"],
-  ["33kV XLPE UG Cable", "TSSPDCL", "Balaji Nagar to Sainikpuri", "Underground Cable"],
-  ["NH Utility Shifting NH-227 & NH-209", "National Highways", "Tamil Nadu", "Utility Shifting"],
-  ["SH-115 CKICP Utility Shifting", "State Highways", "Tamil Nadu", "Utility Shifting"],
-  ["NH-66 Utility Shifting", "National Highways", "Tamil Nadu", "Highway Infrastructure"],
-  ["Mini Towers Installation", "TSSPDCL", "Hyderabad & Keesara", "Mini Towers"],
-] as const;
+export interface ProjectItem {
+  id: string;
+  no: string;
+  title: string;
+  category: "Highway Utility Shifting" | "HT/LT & RDSS Works";
+  scope: string;
+  client: string;
+  clientLocation: string;
+  agreement: string;
+  date: string;
+  status: "Completed" | "Ongoing";
+  location: string;
+  chainage?: string;
+  image: string;
+  tags: string[];
+}
 
-export function ProjectCards({ limit }: { limit?: number }) {
+export const projects: ProjectItem[] = [
+  {
+    id: "nh-227",
+    no: "01",
+    title: "NH-227 Road Widening",
+    category: "Highway Utility Shifting",
+    scope:
+      "Shift and erect HT/LT lines, baby towers and DTRs for the NHAI road-widening project, CH 78+120 to 98+340. Subcontract work.",
+    client: "SRR Projects",
+    clientLocation: "Keelapalur, Tamil Nadu",
+    agreement: "SRR Projects/WO/E.Shift/2018-19/07",
+    date: "01.02.2019",
+    status: "Completed",
+    location: "Keelapalur, Tamil Nadu",
+    chainage: "CH 78+120 to 98+340",
+    image: civilImage,
+    tags: ["NHAI Road Widening", "HT/LT Lines & DTRs", "Baby Towers"],
+  },
+  {
+    id: "bangalore-chennai-exp",
+    no: "02",
+    title: "Bangalore–Chennai Expressway",
+    category: "Highway Utility Shifting",
+    scope:
+      "Shift and erect HT/LT lines, baby towers and DTRs for the four-lane Bangalore–Chennai Expressway, Package IV.",
+    client: "RCCL Srikanche Expressway Pvt Ltd",
+    clientLocation: "Tamil Nadu",
+    agreement: "RSEPL/LOI/WO-UTY/2021/001",
+    date: "23.11.2021",
+    status: "Completed",
+    location: "Tamil Nadu",
+    chainage: "Expressway Package IV",
+    image: heroImage,
+    tags: ["4-Lane Expressway", "Package IV", "Baby Towers & DTRs"],
+  },
+  {
+    id: "rdss-feeder-1",
+    no: "03",
+    title: "RDSS Agricultural Feeder Segregation",
+    category: "HT/LT & RDSS Works",
+    scope:
+      "11 kV Rural Agri Feeder Segregation (K2) work under the Government of India RDSS scheme.",
+    client: "TANGEDCO",
+    clientLocation: "Additional Chief Engineer, Kanchipuram",
+    agreement: "ACE/KEDC/KPM/AEE.MM/AE/D.No.817/2022",
+    date: "25.07.2022",
+    status: "Completed",
+    location: "Kanchipuram, Tamil Nadu",
+    chainage: "11 kV K2 Feeder Network",
+    image: substationImage,
+    tags: ["RDSS Scheme", "11 kV Agri Feeder", "TANGEDCO Govt EPC"],
+  },
+  {
+    id: "rdss-feeder-2",
+    no: "04",
+    title: "RDSS Agricultural Feeder Segregation",
+    category: "HT/LT & RDSS Works",
+    scope:
+      "11 kV Rural Agri Feeder Segregation (K2) work under the Government of India RDSS scheme.",
+    client: "TANGEDCO",
+    clientLocation: "Additional Chief Engineer, Kanchipuram",
+    agreement: "ACE/KEDC/KPM/AEE.MM/AE/D.No.827/2022",
+    date: "26.07.2022",
+    status: "Completed",
+    location: "Kanchipuram, Tamil Nadu",
+    chainage: "11 kV K2 Feeder Network",
+    image: engineersImage,
+    tags: ["RDSS Scheme", "Feeder Segregation", "TANGEDCO Govt EPC"],
+  },
+  {
+    id: "nh-332-pkg-2",
+    no: "05",
+    title: "Puducherry–Poondiyankuppam / NH-332",
+    category: "Highway Utility Shifting",
+    scope:
+      "Shift and erect HT/LT lines, baby towers and DTRs for four-laning of NH-45A (New NH-332), km 29.000 to km 67.000, Package II, Tamil Nadu.",
+    client: "Dilip Buildcon Limited",
+    clientLocation: "Bhopal, Madhya Pradesh",
+    agreement: "DBL/WO/HO/Puducherry to Poondiyankuppam/2022/071",
+    date: "2022",
+    status: "Completed",
+    location: "Tamil Nadu & Puducherry",
+    chainage: "Km 29.000 to Km 67.000 (Package II)",
+    image: civilImage,
+    tags: ["NH-45A / New NH-332", "Dilip Buildcon", "Package II"],
+  },
+  {
+    id: "nh-332-pkg-1",
+    no: "06",
+    title: "Villupuram–Puducherry / NH-332",
+    category: "Highway Utility Shifting",
+    scope:
+      "Four-laning of the Villupuram–Puducherry section of NH-45A (New NH-332), km 0.000 to km 29.000, Package I, Tamil Nadu.",
+    client: "Dilip Buildcon Limited",
+    clientLocation: "Bhopal, Madhya Pradesh",
+    agreement: "DBL/WO/HO/Villupuram Puducherry/2023/011",
+    date: "30.01.2023",
+    status: "Completed",
+    location: "Villupuram – Puducherry, Tamil Nadu",
+    chainage: "Km 0.000 to Km 29.000 (Package I)",
+    image: heroImage,
+    tags: ["NH-45A / New NH-332", "Dilip Buildcon", "Package I"],
+  },
+  {
+    id: "nh-205-four-lane",
+    no: "07",
+    title: "Tiruvallur–Veppampattu / NH-205",
+    category: "Highway Utility Shifting",
+    scope:
+      "Balance four-lane work from km 43.950 (Thiruvallur Bypass) to km 61.470 (Veppampattu Bypass), through Thaneerkulam, Thozur and Sevvapet Bypass (17.520 km), on the Tirupathi–Tiruttani–Chennai section of NH-205, Tamil Nadu.",
+    client: "EKK Infrastructure Limited",
+    clientLocation: "Perumbavoor, Ernakulam, Kerala",
+    agreement: "EIL/205-29/22-23",
+    date: "11.03.2023",
+    status: "Completed",
+    location: "Tiruvallur – Veppampattu, Tamil Nadu",
+    chainage: "Km 43.950 to Km 61.470 (17.520 km)",
+    image: civilImage,
+    tags: ["NH-205 Tirupathi–Chennai", "17.52 km Corridor", "EKK Infrastructure"],
+  },
+  {
+    id: "nh-716b-six-lane",
+    no: "08",
+    title: "Chittoor–Thatchur / NH-716B",
+    category: "Highway Utility Shifting",
+    scope:
+      "Shift existing HT/LT overhead lines for the proposed six-lane highway, CH 51+000 to CH 55+600, Pallipet and Poddutturpet section of NH-716B, Tamil Nadu.",
+    client: "EKK Infrastructure Limited",
+    clientLocation: "Perumbavoor, Ernakulam, Kerala",
+    agreement: "EIL/300-5/23-24",
+    date: "10.06.2023",
+    status: "Completed",
+    location: "Pallipet & Poddutturpet, Tamil Nadu",
+    chainage: "CH 51+000 to CH 55+600",
+    image: substationImage,
+    tags: ["Six-Lane NH-716B", "HT/LT Line Shift", "EKK Infrastructure"],
+  },
+  {
+    id: "cprr-six-lane",
+    no: "09",
+    title: "Vengathur–Sengadu / CPRR",
+    category: "Highway Utility Shifting",
+    scope:
+      "Shift existing HT/LT overhead lines for the proposed six-lane highway, CH 58+200 to CH 68+200, Thiruvallur section of CPRR, EPC Package 04, Tamil Nadu.",
+    client: "RR Infra",
+    clientLocation: "Vinayaga Nagar, Madurai, Tamil Nadu",
+    agreement: "Ongoing works – as listed in profile",
+    date: "Ongoing",
+    status: "Ongoing",
+    location: "Thiruvallur section, Tamil Nadu",
+    chainage: "CH 58+200 to CH 68+200 (Package 04)",
+    image: heroImage,
+    tags: ["Chennai Peripheral Ring Road", "Six-Lane EPC Package 04", "Active Execution"],
+  },
+  {
+    id: "nh-48-four-lane",
+    no: "10",
+    title: "Sriperumbudur–Karapattai / NH-48",
+    category: "Highway Utility Shifting",
+    scope:
+      "Shift existing HT/LT overhead lines for the four-laning project on NH-48, CH 37+000 to CH 69+800, Tamil Nadu.",
+    client: "P & C Projects (P) Ltd.",
+    clientLocation: "Perundurai Road, Erode, Tamil Nadu",
+    agreement: "Ongoing works – as listed in profile",
+    date: "Ongoing",
+    status: "Ongoing",
+    location: "Sriperumbudur to Karapattai, Tamil Nadu",
+    chainage: "CH 37+000 to CH 69+800 (32.8 km)",
+    image: civilImage,
+    tags: ["NH-48 Four-Laning", "32.8 km Corridor", "Active Execution"],
+  },
+];
+
+export function ProjectCards({
+  limit,
+  showFilters = false,
+}: {
+  limit?: number;
+  showFilters?: boolean;
+}) {
+  const [filter, setFilter] = useState<string>("All");
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+
+  const categories = [
+    { label: "All Projects", value: "All", count: projects.length },
+    {
+      label: "Highway Utility Shifting",
+      value: "Highway Utility Shifting",
+      count: projects.filter((p) => p.category === "Highway Utility Shifting").length,
+    },
+    {
+      label: "HT/LT & RDSS Works",
+      value: "HT/LT & RDSS Works",
+      count: projects.filter((p) => p.category === "HT/LT & RDSS Works").length,
+    },
+    {
+      label: "Ongoing Works",
+      value: "Ongoing",
+      count: projects.filter((p) => p.status === "Ongoing").length,
+    },
+  ];
+
+  let filtered = projects;
+  if (filter === "Ongoing") {
+    filtered = projects.filter((p) => p.status === "Ongoing");
+  } else if (filter !== "All") {
+    filtered = projects.filter((p) => p.category === filter);
+  }
+
+  const displayList = limit ? filtered.slice(0, limit) : filtered;
+
   return (
-    <div className="grid gap-6 md:grid-cols-2">
-      {projects.slice(0, limit).map((p, i) => (
-        <article
-          key={p[0]}
-          className="group flex flex-col justify-between h-full overflow-hidden rounded-card bg-card shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium border border-border/80"
-        >
-          <div>
-            <div className="relative h-64 overflow-hidden">
-              <img
-                src={i % 3 === 0 ? substationImage : i % 3 === 1 ? civilImage : heroImage}
-                alt={p[0]}
-                loading="lazy"
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                width={800}
-                height={500}
-              />
-              <span className="absolute left-5 top-5 rounded-full bg-primary/95 px-3 py-1 text-xs font-bold text-primary-foreground backdrop-blur-xs">
-                {p[1]}
+    <>
+      {showFilters && !limit && (
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          {categories.map((c) => (
+            <button
+              key={c.value}
+              type="button"
+              onClick={() => setFilter(c.value)}
+              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all shadow-xs cursor-pointer ${
+                filter === c.value
+                  ? "bg-primary text-primary-foreground shadow-md shadow-primary/25 scale-102"
+                  : "bg-background text-muted-foreground hover:bg-primary-soft hover:text-navy border border-border"
+              }`}
+            >
+              <span>{c.label}</span>
+              <span
+                className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${
+                  filter === c.value
+                    ? "bg-primary-foreground/20 text-primary-foreground"
+                    : "bg-muted text-muted-foreground"
+                }`}
+              >
+                {c.count}
               </span>
-              <span className="absolute bottom-5 right-5 rounded-full bg-success px-3 py-1 text-xs font-bold text-success-foreground shadow-sm">
-                <CheckCircle2 className="mr-1 inline h-3.5 w-3.5" /> Completed
-              </span>
-            </div>
-            <div className="p-6">
-              <div className="flex items-center justify-between">
-                <p className="text-xs font-bold uppercase tracking-[.15em] text-primary">{p[3]}</p>
-                <span className="flex items-center gap-1 text-xs font-semibold text-muted-foreground">
-                  <MapPin className="h-3.5 w-3.5 text-destructive" />
-                  {p[2]}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {displayList.map((p) => (
+          <article
+            key={p.id}
+            className="group flex flex-col justify-between h-full overflow-hidden rounded-card bg-card shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium border border-border/80"
+          >
+            <div>
+              <div className="relative h-60 sm:h-64 overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  width={800}
+                  height={500}
+                />
+                {/* Project Number Badge */}
+                <span className="absolute left-4 top-4 rounded-lg bg-navy/90 px-2.5 py-1 text-xs font-numbers font-extrabold text-gold backdrop-blur-xs shadow-md">
+                  PROJ #{p.no}
+                </span>
+
+                {/* Status Badge */}
+                {p.status === "Completed" ? (
+                  <span className="absolute bottom-4 right-4 rounded-full bg-emerald-600/95 px-3 py-1 text-xs font-bold text-white shadow-md flex items-center gap-1 backdrop-blur-xs">
+                    <CheckCircle2 className="h-3.5 w-3.5" /> Completed
+                  </span>
+                ) : (
+                  <span className="absolute bottom-4 right-4 rounded-full bg-amber-500/95 px-3 py-1 text-xs font-bold text-white shadow-md flex items-center gap-1.5 backdrop-blur-xs animate-pulse">
+                    <span className="h-2 w-2 rounded-full bg-white"></span> Ongoing Work
+                  </span>
+                )}
+
+                {/* Client Tag Top Right */}
+                <span className="absolute right-4 top-4 max-w-[200px] truncate rounded-full bg-primary/90 px-3 py-1 text-xs font-bold text-primary-foreground backdrop-blur-xs shadow-sm">
+                  {p.client}
                 </span>
               </div>
-              <h3 className="mt-3 font-display text-xl font-bold text-navy leading-snug">{p[0]}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-justify sm:text-left">
-                Executed with rigorous planning, safety controls, approved drawings, and dependable
-                engineering precision.
-              </p>
+
+              <div className="p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[.12em] text-primary">
+                    <Layers className="h-3.5 w-3.5" /> {p.category}
+                  </span>
+                  <span className="flex items-center gap-1 text-xs font-semibold text-muted-foreground">
+                    <MapPin className="h-3.5 w-3.5 text-destructive shrink-0" />
+                    <span className="truncate max-w-[170px]">{p.location}</span>
+                  </span>
+                </div>
+
+                <h3 className="mt-3 font-display text-lg sm:text-xl font-bold text-navy leading-snug group-hover:text-primary transition-colors">
+                  {p.title}
+                </h3>
+
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                  {p.scope}
+                </p>
+
+                {/* Scope & Agreement Badges */}
+                <div className="mt-4 rounded-lg bg-primary-soft/60 p-3 text-xs border border-primary/10 space-y-1.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="font-semibold text-slate-600 shrink-0 flex items-center gap-1">
+                      <FileText className="h-3.5 w-3.5 text-primary" /> Agreement:
+                    </span>
+                    <span className="font-mono text-[11px] text-navy font-semibold text-right break-all">
+                      {p.agreement}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-semibold text-slate-600 shrink-0 flex items-center gap-1">
+                      <Calendar className="h-3.5 w-3.5 text-primary" /> Date:
+                    </span>
+                    <span className="font-medium text-navy text-right font-numbers text-[11px]">
+                      {p.date}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Tag Pills */}
+                <div className="mt-3.5 flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-md bg-secondary/80 px-2 py-0.5 text-[11px] font-medium text-secondary-foreground"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-border/40">
-            <span className="text-xs font-semibold text-slate-600">Turnkey EPC</span>
-            <span className="text-xs font-bold text-primary inline-flex items-center gap-1 group-hover:underline">
-              Project Details <ArrowRight className="h-3.5 w-3.5" />
-            </span>
-          </div>
-        </article>
-      ))}
-    </div>
+
+            <div className="px-5 sm:px-6 pb-5 pt-2 flex items-center justify-between border-t border-border/50">
+              <span className="text-xs font-semibold text-muted-foreground">
+                {p.chainage ? p.chainage : "Turnkey Execution"}
+              </span>
+
+              {/* Dialog Trigger */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProject(p)}
+                    className="text-xs font-bold text-primary inline-flex items-center gap-1 hover:text-navy cursor-pointer transition-colors"
+                  >
+                    View Scope & Details <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                </DialogTrigger>
+
+                <DialogContent className="sm:max-w-xl max-h-[90vh] overflow-y-auto">
+                  <DialogHeader>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="rounded bg-navy px-2 py-0.5 font-numbers text-xs font-bold text-gold">
+                        PROJECT #{p.no}
+                      </span>
+                      <span
+                        className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                          p.status === "Completed"
+                            ? "bg-emerald-100 text-emerald-800"
+                            : "bg-amber-100 text-amber-800"
+                        }`}
+                      >
+                        {p.status}
+                      </span>
+                    </div>
+                    <DialogTitle className="text-xl font-bold text-navy">
+                      {p.title}
+                    </DialogTitle>
+                    <DialogDescription className="text-xs font-semibold text-primary uppercase tracking-wider">
+                      {p.category}
+                    </DialogDescription>
+                  </DialogHeader>
+
+                  <div className="mt-4 space-y-4 text-sm">
+                    <div className="relative h-44 overflow-hidden rounded-lg">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-navy text-xs uppercase tracking-wider">
+                        Scope of Work & Specification
+                      </h4>
+                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                        {p.scope}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 rounded-lg border border-border bg-primary-soft/40 p-3.5 text-xs">
+                      <div>
+                        <span className="font-semibold text-slate-500 block">Client</span>
+                        <span className="font-bold text-navy">{p.client}</span>
+                        <span className="block text-slate-600 text-[11px] mt-0.5">
+                          {p.clientLocation}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-slate-500 block">Work Location</span>
+                        <span className="font-bold text-navy">{p.location}</span>
+                        {p.chainage && (
+                          <span className="block text-primary text-[11px] mt-0.5 font-medium">
+                            {p.chainage}
+                          </span>
+                        )}
+                      </div>
+                      <div className="sm:col-span-2 pt-2 border-t border-border/50">
+                        <span className="font-semibold text-slate-500 block">
+                          Agreement / Work Order Reference
+                        </span>
+                        <span className="font-mono text-xs font-bold text-navy break-all">
+                          {p.agreement}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-slate-500 block">Execution Date</span>
+                        <span className="font-bold text-navy font-numbers">{p.date}</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-slate-500 block">Status</span>
+                        <span
+                          className={`font-bold ${
+                            p.status === "Completed" ? "text-emerald-600" : "text-amber-600"
+                          }`}
+                        >
+                          {p.status}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <span className="font-semibold text-slate-500 block text-xs mb-1.5">
+                        Key Features & Highlights
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {p.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-md bg-primary/10 text-primary px-2.5 py-1 text-xs font-medium"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </article>
+        ))}
+      </div>
+    </>
   );
 }
 

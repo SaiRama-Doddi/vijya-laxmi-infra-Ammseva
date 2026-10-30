@@ -57,12 +57,12 @@ export default function Home() {
       {/* Overlapping Stats Grid */}
       <div className="relative z-20 -mt-8 mx-auto max-w-7xl px-5 sm:-mt-10 lg:-mt-12 lg:px-8">
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
-          {[
+          {([
             ["10+", "Years Experience"],
-            ["100+", "Infrastructure Projects"],
+            ["10+", "Infrastructure Projects"],
             ["33/11kV", "Power Infrastructure"],
             ["Pan India", "Services"],
-          ].map(([val, label]) => (
+          ] as const).map(([val, label]) => (
             <div
               key={label}
               className="group flex flex-col justify-center items-center text-center sm:items-start sm:text-left rounded-card border border-border/80 bg-card p-5 sm:p-6 shadow-premium transition duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl"
