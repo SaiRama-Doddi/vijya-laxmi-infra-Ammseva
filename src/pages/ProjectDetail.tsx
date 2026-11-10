@@ -330,16 +330,18 @@ export default function ProjectDetail() {
 
                 <div className="mt-4 space-y-2.5 text-xs">
                   <a
-                    href="tel:+919502895289"
+                    href="tel:+918374091205"
                     className="flex items-center gap-2.5 rounded-lg bg-background p-2.5 font-semibold text-navy hover:text-primary transition-colors border border-border"
                   >
-                    <Phone className="h-4 w-4 text-primary" /> +91 95028 95289
+                    <Phone className="h-4 w-4 text-primary" /> +91 83740 91205
                   </a>
                   <a
-                    href="mailto:anuraag.cherukuri@gmail.com"
-                    className="flex items-center gap-2.5 rounded-lg bg-background p-2.5 font-semibold text-navy hover:text-primary transition-colors border border-border truncate"
+                    href="https://wa.me/918374091205?text=Hello%20Vijaya%20Lakshmi%20Infra,%20I%20would%20like%20to%20inquire%20about%20your%20infrastructure%20services."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2.5 rounded-lg bg-background p-2.5 font-semibold text-navy hover:text-[#25D366] transition-colors border border-border truncate"
                   >
-                    <Mail className="h-4 w-4 text-primary" /> anuraag.cherukuri@gmail.com
+                    <Zap className="h-4 w-4 text-[#25D366]" /> WhatsApp Direct Inquiry
                   </a>
                 </div>
 

@@ -72,9 +72,8 @@ export default function Contact() {
       "Registered Office",
       "H.No: 32K/22C, 2nd Floor, Shop No-1, Old Bypass, Vettavalam Road, Thiruvannamalai, Tamil Nadu – 606601",
     ],
-    [Phone, "Phone Support", "+91 95028 95289"],
-    [Mail, "Email Enquiry", "anuraag.cherukuri@gmail.com"],
-    [UserRound, "Managing Director", "Anuraag Cherukuri"],
+    [Phone, "Phone Support", "+91 83740 91205"],
+    [UserRound, "Founder and Managing Director", "Anuraag Cherukuri"],
   ] as const;
 
   const whatsappMessage = encodeURIComponent(
@@ -98,7 +97,7 @@ export default function Contact() {
           />
 
           {/* Quick Info Cards */}
-          <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
             {contactInfo.map(([Icon, title, desc]) => (
               <article
                 className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-5 sm:p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium"
@@ -171,7 +170,7 @@ export default function Contact() {
                 <div className="mt-6 pt-4 border-t border-border/50 flex flex-wrap items-center gap-3">
                   <Button asChild variant="default" className="bg-[#25D366] text-white hover:bg-[#20ba59]">
                     <a
-                      href={`https://wa.me/919502895289?text=${whatsappMessage}`}
+                      href={`https://wa.me/918374091205?text=${whatsappMessage}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

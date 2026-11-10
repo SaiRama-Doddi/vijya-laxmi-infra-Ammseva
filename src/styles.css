@@ -153,11 +153,16 @@
     border-color: var(--color-border);
   }
 
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
@@ -167,6 +172,15 @@
   h3,
   h4 {
     letter-spacing: 0;
+  }
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  a {
+    overflow-wrap: break-word;
   }
 }
 
@@ -257,6 +271,19 @@
   width: max-content;
   animation: marquee 22s linear infinite;
   will-change: transform;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
 }
 
 .pause-on-hover:hover {

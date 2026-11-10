@@ -220,24 +220,70 @@ export default function About() {
             title="Accountable leadership. Grounded execution."
             copy="Guiding every infrastructure undertaking with deep domain expertise and direct on-site accountability."
           />
-          <article className="grid overflow-hidden rounded-card bg-primary-soft md:grid-cols-[.8fr_1.2fr] shadow-card">
-            <img
-              src={images.engineersImage}
-              alt="Engineering leadership team"
-              className="h-full min-h-64 sm:min-h-72 w-full object-cover"
-            />
-            <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-              <span className="text-xs font-bold uppercase tracking-[.18em] text-primary">
-                Managing Director
-              </span>
-              <h3 className="mt-2 font-display text-2xl sm:text-3xl font-bold text-navy">
-                Anuraag Cherukuri
-              </h3>
-              <p className="mt-3 max-w-xl leading-relaxed text-sm sm:text-base text-muted-foreground text-justify sm:text-left">
-                Leading Vijaya Lakshmi Infra with a hands-on commitment to technical quality,
-                uncompromising project safety, and long-term relationships with government bodies
-                and infrastructure developers.
-              </p>
+          <article className="group relative overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-primary-soft/30 to-white p-5 sm:p-8 lg:p-12 shadow-card transition-all duration-500 hover:border-primary/40 hover:shadow-premium reveal-up">
+            {/* Ambient background decoration */}
+            <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-gold/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+
+            <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-8 md:flex-row md:items-center lg:gap-12 xl:gap-14">
+              {/* Round Executive Avatar with Effects */}
+              <div className="relative shrink-0 my-2 sm:my-3">
+                {/* Soft ambient aura / glow behind avatar */}
+                <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-primary/30 via-gold/20 to-navy/30 blur-xl opacity-70 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105" />
+
+                {/* Multi-layer luxury gradient ring */}
+                <div className="relative h-52 w-52 sm:h-60 sm:w-60 md:h-64 md:w-64 lg:h-72 lg:w-72 rounded-full p-[5px] bg-gradient-to-tr from-primary via-navy to-gold shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/20">
+                  <div className="h-full w-full rounded-full bg-white p-[3px] shadow-inner">
+                    <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-50 ring-1 ring-slate-200">
+                      <img
+                        src={images.anuraagImage}
+                        alt="Anuraag Cherukuri - Founder and Managing Director"
+                        className="h-full w-full object-cover object-[center_18%] scale-105 transition-transform duration-500 ease-out group-hover:scale-115"
+                      />
+                      {/* Subtle lighting reflection */}
+                      <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-navy/30 via-transparent to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-20" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Centered Executive Badge */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-white bg-navy px-3.5 py-1.5 sm:px-4 text-xs font-bold text-white shadow-lg backdrop-blur transition-all duration-300 group-hover:scale-105 group-hover:bg-primary">
+                  <ShieldCheck className="h-4 w-4 text-gold" />
+                  <span className="tracking-wide">Founder & MD</span>
+                </div>
+              </div>
+
+              {/* Bio & Leadership Information */}
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[.18em] text-primary">
+                  <Award className="h-3.5 w-3.5 text-gold" />
+                  Founder & Managing Director
+                </div>
+                <h3 className="mt-3 font-display text-2xl font-black text-navy sm:text-3xl lg:text-4xl">
+                  Anuraag Cherukuri
+                </h3>
+                <p className="mt-3.5 leading-relaxed text-sm sm:text-base text-muted-foreground text-justify">
+                  Leading Vijaya Lakshmi Infra with a hands-on commitment to technical quality,
+                  uncompromising project safety, and long-term relationships with government bodies
+                  and infrastructure developers. Under his leadership, the organization has
+                  successfully delivered landmark high-voltage transmission, substations, and
+                  critical highway utility corridors across India.
+                </p>
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3.5 pt-4 sm:pt-5 border-t border-slate-200/80 text-xs">
+                  <div className="rounded-xl bg-white/90 p-3 sm:p-3.5 border border-slate-100 shadow-xs text-left">
+                    <span className="text-slate-500 font-semibold block text-[11px] uppercase tracking-wider">Designation</span>
+                    <span className="font-bold text-navy text-xs sm:text-sm">Founder & MD</span>
+                  </div>
+                  <div className="rounded-xl bg-white/90 p-3 sm:p-3.5 border border-slate-100 shadow-xs text-left">
+                    <span className="text-slate-500 font-semibold block text-[11px] uppercase tracking-wider">Company</span>
+                    <span className="font-bold text-navy text-xs sm:text-sm">Vijaya Lakshmi Infra</span>
+                  </div>
+                  <div className="rounded-xl bg-white/90 p-3 sm:p-3.5 border border-slate-100 shadow-xs text-left">
+                    <span className="text-slate-500 font-semibold block text-[11px] uppercase tracking-wider">Leadership</span>
+                    <span className="font-bold text-navy text-xs sm:text-sm">Since 2014</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
         </div>
