@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { SectionTitle, WhatsAppIcon, images } from "@/components/site";
+import { WhatsAppIcon, images } from "@/components/site";
 
 export default function Contact() {
   useEffect(() => {
@@ -82,16 +82,10 @@ export default function Contact() {
 
   return (
     <>
-      <section className="section-pad">
+      <section className="pt-3 sm:pt-5 pb-12 sm:pb-16 bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionTitle
-            eyebrow="Talk to our team"
-            title="Start your next project with confidence"
-            copy="Reach out to discuss turnkey transmission, substation installation, highway utility shifting, or specialized civil engineering solutions."
-          />
-
           {/* Enquiry Form and Map / Office Container */}
-          <div className="mt-6 sm:mt-8 grid gap-8 lg:grid-cols-[1.15fr_.85fr] items-stretch">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] items-stretch">
             {/* Form Container */}
             {isSuccess ? (
               <div className="flex flex-col justify-between rounded-card bg-primary-soft p-6 sm:p-8 shadow-card border border-border/60">
