@@ -108,7 +108,7 @@ export default function ProjectDetail() {
 
           {/* Project Header Info */}
           <div className="mb-8 text-left">
-            <div className="flex flex-wrap items-center gap-2.5 mb-3">
+            <div className="hidden sm:flex flex-wrap items-center gap-2.5 mb-3">
               <span className="rounded-md bg-primary-soft text-primary border border-primary/20 px-3 py-1 font-numbers text-xs font-extrabold tracking-wider">
                 PROJECT #{project.no}
               </span>
@@ -127,7 +127,7 @@ export default function ProjectDetail() {
               )}
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight leading-tight max-w-4xl">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-navy tracking-tight leading-tight max-w-4xl">
               {project.title}
             </h1>
 
@@ -257,7 +257,11 @@ export default function ProjectDetail() {
                     <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
                       Agreement / Work Order No.
                     </span>
-                    <span className="font-mono text-xs font-bold text-navy bg-primary-soft/80 p-2 rounded border border-primary/15 block break-all">
+                    <span
+                      title={project.agreement}
+                      className="font-mono text-[11px] sm:text-xs font-bold text-navy bg-primary-soft/80 p-2 rounded border border-primary/15 block whitespace-nowrap overflow-x-auto no-scrollbar"
+                      style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                    >
                       {project.agreement}
                     </span>
                   </div>

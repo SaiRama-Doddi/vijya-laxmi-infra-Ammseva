@@ -506,7 +506,7 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 w-full border-b transition-all duration-300 ${
         isScrolled
           ? "border-slate-200/90 bg-white/98 shadow-md backdrop-blur-xl"
           : "border-slate-200/60 bg-white/95 shadow-xs backdrop-blur-xl"
@@ -552,7 +552,7 @@ export function Header() {
         </Button>
       </div>
       {open && (
-        <nav className="border-t border-slate-200 bg-white p-5 shadow-xl lg:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+        <nav className="border-t border-slate-200 bg-white p-5 shadow-xl lg:hidden animate-in fade-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
           {links.map(([label, to]) => (
             <Link
               key={to}
@@ -632,26 +632,6 @@ export function Footer() {
             </p>
           </div>
           <div className="mt-5 flex items-center gap-3">
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Vijaya Lakshmi Infra on LinkedIn"
-              title="LinkedIn"
-              className="grid h-10 w-10 place-items-center rounded-full bg-[#0A66C2] text-white shadow-md shadow-[#0A66C2]/30 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#0A66C2]/50 hover:brightness-110"
-            >
-              <LinkedInIcon className="h-5 w-5" />
-            </a>
-            <a
-              href="https://wa.me/918374091205?text=Hello%20Vijaya%20Lakshmi%20Infra,%20I%20would%20like%20to%20inquire%20about%20your%20infrastructure%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Chat with Vijaya Lakshmi Infra on WhatsApp"
-              title="WhatsApp"
-              className="grid h-10 w-10 place-items-center rounded-full bg-[#25D366] text-white shadow-md shadow-[#25D366]/30 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#25D366]/50 hover:brightness-110"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-            </a>
             <a
               href="https://www.facebook.com"
               target="_blank"
@@ -904,6 +884,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
+      <div className="h-16 sm:h-18 shrink-0" aria-hidden="true" />
       <main className="min-h-screen">{children}</main>
       <Footer />
       <StickyContactActions />
@@ -949,7 +930,7 @@ export function SectionTitle({
     >
       <Eyebrow light={light}>{eyebrow}</Eyebrow>
       <h2
-        className={`font-display text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl ${
+        className={`font-display text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold leading-tight ${
           light ? "text-primary-foreground" : "text-navy"
         }`}
       >
@@ -1599,26 +1580,32 @@ export function ProjectCards({
                   width={800}
                   height={500}
                 />
-                {/* Project Number Badge */}
-                <span className="absolute left-4 top-4 rounded-lg bg-navy/90 px-2.5 py-1 text-xs font-numbers font-extrabold text-gold backdrop-blur-xs shadow-md">
-                  PROJ #{p.no}
-                </span>
+                {/* Top Header Badges (Left: Number, Right: Client Tag) */}
+                <div className="absolute inset-x-3.5 top-3.5 sm:inset-x-4 sm:top-4 flex items-center justify-between gap-2 z-10 pointer-events-none">
+                  {/* Project Number Badge */}
+                  <span className="shrink-0 rounded-lg bg-navy/90 px-2.5 py-1 text-xs font-numbers font-extrabold text-gold backdrop-blur-xs shadow-md">
+                    PROJ #{p.no}
+                  </span>
+
+                  {/* Client Tag */}
+                  <span
+                    title={p.client}
+                    className="min-w-0 max-w-[170px] sm:max-w-[220px] truncate rounded-full bg-primary/95 px-2.5 sm:px-3 py-1 text-xs font-bold text-primary-foreground backdrop-blur-xs shadow-sm"
+                  >
+                    {p.client}
+                  </span>
+                </div>
 
                 {/* Status Badge */}
                 {p.status === "Completed" ? (
-                  <span className="absolute bottom-4 right-4 rounded-full bg-emerald-600/95 px-3 py-1 text-xs font-bold text-white shadow-md flex items-center gap-1 backdrop-blur-xs">
+                  <span className="absolute bottom-3.5 right-3.5 sm:bottom-4 sm:right-4 rounded-full bg-emerald-600/95 px-3 py-1 text-xs font-bold text-white shadow-md flex items-center gap-1 backdrop-blur-xs z-10">
                     <CheckCircle2 className="h-3.5 w-3.5" /> Completed
                   </span>
                 ) : (
-                  <span className="absolute bottom-4 right-4 rounded-full bg-amber-500/95 px-3 py-1 text-xs font-bold text-white shadow-md flex items-center gap-1.5 backdrop-blur-xs animate-pulse">
+                  <span className="absolute bottom-3.5 right-3.5 sm:bottom-4 sm:right-4 rounded-full bg-amber-500/95 px-3 py-1 text-xs font-bold text-white shadow-md flex items-center gap-1.5 backdrop-blur-xs animate-pulse z-10">
                     <span className="h-2 w-2 rounded-full bg-white"></span> Ongoing Work
                   </span>
                 )}
-
-                {/* Client Tag Top Right */}
-                <span className="absolute right-4 top-4 max-w-[200px] truncate rounded-full bg-primary/90 px-3 py-1 text-xs font-bold text-primary-foreground backdrop-blur-xs shadow-sm">
-                  {p.client}
-                </span>
               </Link>
 
               <div className="p-5 sm:p-6">

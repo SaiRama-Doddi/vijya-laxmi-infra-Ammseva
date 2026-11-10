@@ -31,14 +31,22 @@ function ServiceCardsCarousel({
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const getCardWidth = () => {
+    const el = containerRef.current;
+    if (!el) return 340;
+    const firstChild = el.firstElementChild as HTMLElement | null;
+    if (!firstChild) return 340;
+    const gap = parseFloat(window.getComputedStyle(el).gap) || 16;
+    return firstChild.offsetWidth + gap;
+  };
+
   const checkScroll = () => {
     const el = containerRef.current;
     if (!el) return;
     setCanScrollLeft(el.scrollLeft > 10);
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
-    const firstChild = el.firstElementChild as HTMLElement | null;
-    const cardWidth = firstChild ? firstChild.offsetWidth + 20 : 340;
-    const index = Math.round(el.scrollLeft / cardWidth);
+    const step = getCardWidth();
+    const index = Math.round(el.scrollLeft / step);
     setActiveIndex(Math.min(Math.max(0, index), items.length - 1));
   };
 
@@ -57,18 +65,16 @@ function ServiceCardsCarousel({
   const scroll = (direction: "left" | "right") => {
     const el = containerRef.current;
     if (!el) return;
-    const firstChild = el.firstElementChild as HTMLElement | null;
-    const cardWidth = firstChild ? firstChild.offsetWidth + 20 : 340;
-    const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+    const step = getCardWidth();
+    const scrollAmount = direction === "left" ? -step : step;
     el.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
 
   const scrollToIndex = (index: number) => {
     const el = containerRef.current;
     if (!el) return;
-    const firstChild = el.firstElementChild as HTMLElement | null;
-    const cardWidth = firstChild ? firstChild.offsetWidth + 20 : 340;
-    el.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+    const step = getCardWidth();
+    el.scrollTo({ left: index * step, behavior: "smooth" });
   };
 
   return (
@@ -108,15 +114,15 @@ function ServiceCardsCarousel({
       {/* Carousel Scroll Track */}
       <div
         ref={containerRef}
-        className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pt-4 pb-6 -mx-5 px-5 sm:mx-0 sm:px-0"
+        className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pt-4 pb-6 px-4 sm:px-0 -mx-4 sm:mx-0 scroll-pl-4 sm:scroll-pl-0 scroll-pr-4 sm:scroll-pr-0"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {items.map(([Icon, title, desc], index) => (
           <div
             key={title}
-            className="shrink-0 snap-start w-[280px] sm:w-[320px] lg:w-[340px]"
+            className="shrink-0 snap-start w-[calc(100vw-56px)] max-w-[320px] sm:w-[320px] lg:w-[340px]"
           >
-            <article className="group flex flex-col justify-between h-[340px] rounded-card border border-border bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-premium">
+            <article className="group flex flex-col justify-between h-[340px] rounded-card border border-border bg-card p-5 sm:p-6 shadow-card transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-premium">
               <div>
                 <div className="flex items-center justify-between">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary-soft text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground shadow-sm">

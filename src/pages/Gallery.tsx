@@ -204,7 +204,7 @@ export default function Gallery() {
             <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-primary mb-3">
               OFFICIAL SITE PHOTOGRAPHS
             </span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl leading-tight">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-navy tracking-tight max-w-4xl leading-tight">
               Field Execution & Project Site Gallery
             </h1>
             <p className="mt-3.5 max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
