@@ -150,7 +150,7 @@ export default function Home() {
               </Link>
             </Button>
           </div>
-          <ProjectCards limit={2} />
+          <ProjectCards limit={2} showAgreement={false} />
         </div>
       </section>
     </>

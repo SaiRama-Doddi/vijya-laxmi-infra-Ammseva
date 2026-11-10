@@ -27,22 +27,8 @@ export default function Projects() {
   return (
     <>
       {/* Featured Projects Grid */}
-      <section className="section-pad">
+      <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          {/* Executive Header Banner matching user specification */}
-          <div className="mb-10 text-left">
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-primary mb-3">
-              PROJECT EXPERIENCE
-            </span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl leading-tight">
-              Selected Highway Utility Shifting, HT/LT Line Works & Rural Feeder Segregation Projects
-            </h1>
-            <p className="mt-3.5 max-w-3xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
-              Demonstrated engineering execution across 10 major high-capacity national highway corridors,
-              expressways, and government-tendered RDSS rural electrification contracts.
-            </p>
-          </div>
-
           <ProjectCards showFilters={true} />
         </div>
       </section>

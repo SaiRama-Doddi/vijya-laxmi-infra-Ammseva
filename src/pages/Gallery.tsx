@@ -211,36 +211,6 @@ export default function Gallery() {
               Authentic on-site photographs reproduced from company profile documents, capturing cable
               terminations, tower erection, highway utility corridors, and substation works.
             </p>
-
-            {/* Category Filter Pills */}
-            <div className="mt-8 flex flex-wrap items-center justify-start gap-2 sm:gap-3">
-              {categories.map((c) => (
-                <button
-                  key={c.value}
-                  type="button"
-                  onClick={() => {
-                    setActiveCategory(c.value);
-                    setSelectedImageIndex(null);
-                  }}
-                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all shadow-xs cursor-pointer ${
-                    activeCategory === c.value
-                      ? "bg-primary text-primary-foreground shadow-md shadow-primary/25 scale-102"
-                      : "bg-background text-muted-foreground hover:bg-primary-soft hover:text-navy border border-border"
-                  }`}
-                >
-                  <span>{c.label}</span>
-                  <span
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${
-                      activeCategory === c.value
-                        ? "bg-primary-foreground/20 text-primary-foreground"
-                        : "bg-muted text-muted-foreground"
-                    }`}
-                  >
-                    {c.count}
-                  </span>
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Premium Image-Only Gallery Grid */}
@@ -249,13 +219,12 @@ export default function Gallery() {
               <div
                 key={item.id}
                 onClick={() => setSelectedImageIndex(idx)}
-                className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-slate-900 shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-primary/50 aspect-4/3 ${
-                  idx % 3 === 0
+                className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-slate-900 shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-primary/50 aspect-4/3 ${idx % 3 === 0
                     ? "reveal-left"
                     : idx % 3 === 1
-                    ? (idx % 2 === 0 ? "reveal-down" : "reveal-up")
-                    : "reveal-right"
-                }`}
+                      ? (idx % 2 === 0 ? "reveal-down" : "reveal-up")
+                      : "reveal-right"
+                  }`}
               >
                 {/* Pristine HD Image */}
                 <img

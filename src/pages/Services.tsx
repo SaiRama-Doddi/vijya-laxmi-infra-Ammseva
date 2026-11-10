@@ -74,7 +74,7 @@ function ServiceCardsCarousel({
   return (
     <div className="relative">
       {/* Top Header & Controls */}
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+      <div className="mb-6 sm:mb-7 flex flex-wrap items-center justify-between gap-3 relative z-10">
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
           <span className="inline-flex h-2 w-2 rounded-full bg-primary animate-pulse" />
           <span>
@@ -108,7 +108,7 @@ function ServiceCardsCarousel({
       {/* Carousel Scroll Track */}
       <div
         ref={containerRef}
-        className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar py-2 -mx-5 px-5 sm:mx-0 sm:px-0"
+        className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pt-4 pb-6 -mx-5 px-5 sm:mx-0 sm:px-0"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {items.map(([Icon, title, desc], index) => (
