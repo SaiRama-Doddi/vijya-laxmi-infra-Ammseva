@@ -63,91 +63,90 @@ export default function ProjectDetail() {
 
   return (
     <>
-      {/* Top Banner / Breadcrumb Section */}
-      <section className="bg-navy pt-28 pb-10 text-white border-b border-gold/20">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Breadcrumb className="mb-4">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/" className="text-xs text-white/70 hover:text-white">
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-white/40" />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/projects" className="text-xs text-white/70 hover:text-white">
-                    Projects
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-white/40" />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-xs text-gold font-medium truncate max-w-[200px] sm:max-w-none">
-                  {project.title}
-                </BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-
-          <div className="flex flex-wrap items-center gap-2.5 mb-3">
-            <span className="rounded-md bg-gold/20 text-gold border border-gold/40 px-3 py-1 font-numbers text-xs font-extrabold tracking-wider">
-              PROJECT #{project.no}
-            </span>
-            <span className="rounded-md bg-white/10 text-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-xs flex items-center gap-1.5">
-              <Layers className="h-3.5 w-3.5 text-gold" />
-              {project.category}
-            </span>
-            {project.status === "Completed" ? (
-              <span className="rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 text-xs font-bold flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" /> Completed
-              </span>
-            ) : (
-              <span className="rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1 text-xs font-bold flex items-center gap-1.5 animate-pulse">
-                <span className="h-2 w-2 rounded-full bg-amber-400"></span> Ongoing Execution
-              </span>
-            )}
-          </div>
-
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight max-w-4xl">
-            {project.title}
-          </h1>
-
-          <div className="mt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-white/80">
-            <span className="flex items-center gap-1.5">
-              <Building2 className="h-4 w-4 text-gold shrink-0" />
-              <strong>Client:</strong> {project.client}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <MapPin className="h-4 w-4 text-destructive shrink-0" />
-              <strong>Location:</strong> {project.location}
-            </span>
-            {project.chainage && (
-              <span className="flex items-center gap-1.5">
-                <Route className="h-4 w-4 text-gold shrink-0" />
-                <strong>Chainage:</strong> {project.chainage}
-              </span>
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* Main Content Layout */}
       <section className="section-pad bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="mb-6">
+          {/* Breadcrumb & Back Navigation */}
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                      Home
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-muted-foreground/40" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/projects" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                      Projects
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-muted-foreground/40" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-xs text-navy font-semibold truncate max-w-[200px] sm:max-w-none">
+                    {project.title}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+
             <Button
               asChild
               variant="outline"
               size="sm"
-              className="text-xs font-semibold text-navy hover:text-primary"
+              className="text-xs font-semibold text-navy hover:text-primary hover:border-primary/50"
             >
               <Link to="/projects">
                 <ChevronLeft className="mr-1 h-3.5 w-3.5" /> Back to Project Experience
               </Link>
             </Button>
+          </div>
+
+          {/* Project Header Info */}
+          <div className="mb-8 text-left">
+            <div className="flex flex-wrap items-center gap-2.5 mb-3">
+              <span className="rounded-md bg-primary-soft text-primary border border-primary/20 px-3 py-1 font-numbers text-xs font-extrabold tracking-wider">
+                PROJECT #{project.no}
+              </span>
+              <span className="rounded-md bg-slate-100 text-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-wider border border-slate-200/80 flex items-center gap-1.5">
+                <Layers className="h-3.5 w-3.5 text-primary" />
+                {project.category}
+              </span>
+              {project.status === "Completed" ? (
+                <span className="rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 text-xs font-bold flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> Completed
+                </span>
+              ) : (
+                <span className="rounded-md bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 text-xs font-bold flex items-center gap-1.5 animate-pulse">
+                  <span className="h-2 w-2 rounded-full bg-amber-500"></span> Ongoing Execution
+                </span>
+              )}
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight leading-tight max-w-4xl">
+              {project.title}
+            </h1>
+
+            <div className="mt-3.5 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-slate-600">
+              <span className="flex items-center gap-1.5">
+                <Building2 className="h-4 w-4 text-primary shrink-0" />
+                <strong className="text-navy">Client:</strong> {project.client}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <MapPin className="h-4 w-4 text-destructive shrink-0" />
+                <strong className="text-navy">Location:</strong> {project.location}
+              </span>
+              {project.chainage && (
+                <span className="flex items-center gap-1.5">
+                  <Route className="h-4 w-4 text-gold shrink-0" />
+                  <strong className="text-navy">Chainage:</strong> {project.chainage}
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="grid gap-10 lg:grid-cols-12 items-start">

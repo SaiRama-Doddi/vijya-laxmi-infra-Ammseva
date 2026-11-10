@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { PageHero, SectionTitle, WhatsAppIcon, images } from "@/components/site";
+import { SectionTitle, WhatsAppIcon, images } from "@/components/site";
 
 export default function Contact() {
   useEffect(() => {
@@ -82,12 +82,6 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero
-        title="Let's Build Infrastructure Together"
-        eyebrow="Contact"
-        image={images.engineersImage}
-      />
-
       <section className="section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionTitle
@@ -96,33 +90,8 @@ export default function Contact() {
             copy="Reach out to discuss turnkey transmission, substation installation, highway utility shifting, or specialized civil engineering solutions."
           />
 
-          {/* Quick Info Cards */}
-          <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
-            {contactInfo.map(([Icon, title, desc]) => (
-              <article
-                className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-5 sm:p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium"
-                key={title}
-              >
-                <div>
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-4 font-display text-base sm:text-lg font-bold text-navy leading-snug">
-                    {title}
-                  </h3>
-                  <p className="mt-2 break-words text-xs sm:text-sm leading-relaxed text-muted-foreground text-justify sm:text-left">
-                    {desc}
-                  </p>
-                </div>
-                <div className="mt-4 pt-2.5 border-t border-border/40 text-xs font-semibold text-primary">
-                  Official Communication
-                </div>
-              </article>
-            ))}
-          </div>
-
           {/* Enquiry Form and Map / Office Container */}
-          <div className="mt-10 sm:mt-12 grid gap-8 lg:grid-cols-[1.15fr_.85fr] items-stretch">
+          <div className="mt-6 sm:mt-8 grid gap-8 lg:grid-cols-[1.15fr_.85fr] items-stretch">
             {/* Form Container */}
             {isSuccess ? (
               <div className="flex flex-col justify-between rounded-card bg-primary-soft p-6 sm:p-8 shadow-card border border-border/60">
@@ -194,10 +163,6 @@ export default function Contact() {
                   <h2 className="mt-1 font-display text-xl sm:text-2xl font-bold text-navy">
                     Project Enquiry
                   </h2>
-                  <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground text-justify sm:text-left">
-                    Fill in the details below and our technical estimators will respond within 24
-                    business hours with a tailored feasibility plan.
-                  </p>
 
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-foreground">
@@ -341,6 +306,31 @@ export default function Contact() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Quick Info Cards (Placed after form) */}
+          <div className="mt-10 sm:mt-12 grid gap-4 sm:gap-5 md:grid-cols-3">
+            {contactInfo.map(([Icon, title, desc]) => (
+              <article
+                className="group flex flex-col justify-between h-full rounded-card border border-border bg-card p-5 sm:p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-premium"
+                key={title}
+              >
+                <div>
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-display text-base sm:text-lg font-bold text-navy leading-snug">
+                    {title}
+                  </h3>
+                  <p className="mt-2 break-words text-xs sm:text-sm leading-relaxed text-muted-foreground text-justify sm:text-left">
+                    {desc}
+                  </p>
+                </div>
+                <div className="mt-4 pt-2.5 border-t border-border/40 text-xs font-semibold text-primary">
+                  Official Communication
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

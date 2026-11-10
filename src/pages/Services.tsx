@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { PageHero, SectionTitle, serviceItems, images, FreeConsultancyModal } from "@/components/site";
+import { SectionTitle, serviceItems, images, FreeConsultancyModal } from "@/components/site";
 
 import surveyImg from "@/assets/process/survey.jpg";
 import designImg from "@/assets/process/design.jpg";
@@ -244,12 +244,6 @@ export default function Services() {
 
   return (
     <>
-      <PageHero
-        title="Integrated Engineering. Reliable Execution."
-        eyebrow="Services"
-        image={images.substationImage}
-      />
-
       {/* Electrical & Civil Capabilities Carousels */}
       <section className="section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12 sm:space-y-16">
@@ -352,7 +346,6 @@ export default function Services() {
             eyebrow="How we deliver"
             title="A Proven 7-Step Execution Framework"
             copy="Rigorous milestone tracking, safety protocols, and multi-tier quality gates ensuring engineering precision from start to finish."
-            center
           />
 
           {/* Desktop 7-Column Grid View (hidden on mobile/tablet) */}
@@ -391,10 +384,6 @@ export default function Services() {
 
           {/* Mobile & Tablet Auto-Scrolling Continuous Marquee (visible on screens < lg) */}
           <div className="relative mt-6 -mx-5 sm:-mx-8 overflow-hidden py-3 lg:hidden">
-            {/* Edge Fade Masks */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 sm:w-16 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 sm:w-16 bg-gradient-to-l from-background to-transparent" />
-
             <div className="animate-marquee-fast pause-on-hover flex gap-4 px-5">
               {[...processSteps, ...processSteps, ...processSteps].map((step, idx) => (
                 <article

@@ -130,7 +130,6 @@ export default function Home() {
             eyebrow="Why choose us"
             title="Why Choose Vijaya Lakshmi Infra?"
             copy="From feasibility surveys and detailed engineering to erection, testing, and final commissioning, we bring disciplined rigor to every infrastructure assignment."
-            center
           />
           <FeatureGrid />
         </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { PageHero, SectionTitle } from "@/components/site";
+import { SectionTitle } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import {
   ZoomIn,
@@ -197,29 +197,23 @@ export default function Gallery() {
 
   return (
     <>
-      <PageHero
-        title="Infrastructure Photo Gallery"
-        eyebrow="Visual Portfolio"
-        image={roadCorridorImg}
-      />
-
       <section className="section-pad bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Header Title Banner */}
-          <div className="mb-10 text-center">
+          <div className="mb-10 text-left">
             <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-primary mb-3">
               OFFICIAL SITE PHOTOGRAPHS
             </span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl mx-auto leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl leading-tight">
               Field Execution & Project Site Gallery
             </h1>
-            <p className="mt-3.5 max-w-2xl mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
+            <p className="mt-3.5 max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
               Authentic on-site photographs reproduced from company profile documents, capturing cable
               terminations, tower erection, highway utility corridors, and substation works.
             </p>
 
             {/* Category Filter Pills */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-start gap-2 sm:gap-3">
               {categories.map((c) => (
                 <button
                   key={c.value}

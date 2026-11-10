@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { PageHero, ProjectCards, SectionTitle, images } from "@/components/site";
-import { Route, Zap, FileCheck, CheckCircle2 } from "lucide-react";
+import { ProjectCards, SectionTitle } from "@/components/site";
 
 export default function Projects() {
   useEffect(() => {
@@ -27,60 +26,21 @@ export default function Projects() {
 
   return (
     <>
-      <PageHero
-        title="Project Experience & Engineering Credentials"
-        eyebrow="Portfolio & Case Studies"
-        image={images.civilImage}
-      />
-
       {/* Featured Projects Grid */}
       <section className="section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Executive Header Banner matching user specification */}
-          <div className="mb-10 text-center">
+          <div className="mb-10 text-left">
             <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-primary mb-3">
               PROJECT EXPERIENCE
             </span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl mx-auto leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight max-w-4xl leading-tight">
               Selected Highway Utility Shifting, HT/LT Line Works & Rural Feeder Segregation Projects
             </h1>
-            <p className="mt-3.5 max-w-3xl mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
+            <p className="mt-3.5 max-w-3xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
               Demonstrated engineering execution across 10 major high-capacity national highway corridors,
               expressways, and government-tendered RDSS rural electrification contracts.
             </p>
-
-            {/* 3 Metric Badges */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs reveal-left">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-white">
-                  <FileCheck className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="font-numbers text-xl font-extrabold text-navy">10 PROJECTS</div>
-                  <div className="text-xs text-muted-foreground font-medium">Documented Subcontracts</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs reveal-down">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy text-gold">
-                  <Route className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="font-numbers text-lg font-extrabold text-navy">HIGHWAY CORRIDORS</div>
-                  <div className="text-xs text-muted-foreground font-medium">NHAI, NH-48, NH-332, CPRR</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3.5 rounded-xl border border-primary/20 bg-primary-soft/40 p-4 text-left shadow-xs reveal-right">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gold text-navy">
-                  <Zap className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="font-numbers text-lg font-extrabold text-navy">HT/LT & RDSS</div>
-                  <div className="text-xs text-muted-foreground font-medium">TANGEDCO Feeder Segregation</div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <ProjectCards showFilters={true} />
@@ -120,12 +80,11 @@ export default function Projects() {
 
       {/* Ecosystem & Clients */}
       <section className="section-pad bg-primary-soft">
-        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 text-left lg:px-8">
           <SectionTitle
             eyebrow="Project Ecosystem & Clients"
             title="Trusted by India's Top EPC & Power Authorities"
             copy="Delivering reliable subcontract execution in partnership with state distribution corporations, national highway authorities, and Tier-1 infrastructure firms."
-            center
           />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-6">
             {clients.map((c, idx) => (

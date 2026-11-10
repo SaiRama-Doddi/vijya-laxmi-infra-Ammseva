@@ -489,12 +489,29 @@ export function FreeConsultancyModal({
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
+
   useEffect(() => setOpen(false), [pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 15);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-xs backdrop-blur-xl transition-all duration-300">
+    <header
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+        isScrolled
+          ? "border-slate-200/90 bg-white/98 shadow-md backdrop-blur-xl"
+          : "border-slate-200/60 bg-white/95 shadow-xs backdrop-blur-xl"
+      }`}
+    >
       <div className="mx-auto flex h-16 sm:h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
         <nav
@@ -835,20 +852,30 @@ export function SiteShell({ children }: { children: ReactNode }) {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-revealed");
           } else {
-            // When scrolling out of view (both scrolling up and down), remove is-revealed so it re-triggers
-            entry.target.classList.remove("is-revealed");
+            // Only un-reveal if it has scrolled far out of view (both scrolling up and down)
+            const rect = entry.boundingClientRect;
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            if (rect.bottom < -120 || rect.top > vh + 120) {
+              entry.target.classList.remove("is-revealed");
+            }
           }
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: "30px 0px -30px 0px",
+        threshold: 0.05,
+        rootMargin: "80px 0px 80px 0px",
       }
     );
 
     const scanAndObserve = () => {
       const elements = document.querySelectorAll(selector);
+      const vh = window.innerHeight || document.documentElement.clientHeight;
       elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        // If element is already in viewport on load or reload, reveal it immediately!
+        if (rect.top < vh + 80 && rect.bottom > -80) {
+          el.classList.add("is-revealed");
+        }
         if (!observedElements.has(el)) {
           observer.observe(el);
           observedElements.add(el);
@@ -857,6 +884,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
     };
 
     scanAndObserve();
+    const t1 = setTimeout(scanAndObserve, 60);
+    const t2 = setTimeout(scanAndObserve, 250);
 
     const mutObserver = new MutationObserver(() => {
       scanAndObserve();
@@ -865,6 +894,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
     mutObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
       observer.disconnect();
       mutObserver.disconnect();
     };
@@ -1154,10 +1185,6 @@ export function FeatureGrid({
     const duplicated = [...items, ...items, ...items];
     return (
       <div className="relative -mx-5 sm:-mx-8 overflow-hidden py-4">
-        {/* Gradient edge fade masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-32 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-32 bg-gradient-to-l from-background to-transparent" />
-
         <div className="animate-marquee pause-on-hover flex gap-6 px-6 py-2">
           {duplicated.map(([Icon, title, desc], idx) => (
             <article

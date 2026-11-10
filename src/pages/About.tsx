@@ -14,7 +14,6 @@ import {
 import {
   AnimatedCounter,
   FeatureGrid,
-  PageHero,
   SectionTitle,
   images,
 } from "@/components/site";
@@ -79,12 +78,6 @@ export default function About() {
 
   return (
     <>
-      <PageHero
-        title="Building Reliable Infrastructure Across India"
-        eyebrow="About us"
-        image={images.engineersImage}
-      />
-
       {/* Our Journey */}
       <section className="section-pad bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -92,9 +85,8 @@ export default function About() {
             eyebrow="Our journey"
             title="Built on field experience. Driven by engineering."
             copy="Over a decade of progressive capability expansion, engineering milestones, and dedicated client service."
-            center
           />
-          <div className="relative mx-auto mt-6 sm:mt-8 grid max-w-6xl gap-5 sm:gap-6 md:grid-cols-3">
+          <div className="relative mt-6 sm:mt-8 grid max-w-6xl gap-5 sm:gap-6 md:grid-cols-3">
             {journey.map((item, idx) => (
               <article
                 key={item.year}
@@ -168,7 +160,6 @@ export default function About() {
             eyebrow="Core values"
             title="Principles engineered into every project"
             copy="Our operational values guide how we work on site, collaborate with clients, and safeguard our workforce."
-            center
           />
           <FeatureGrid items={values} />
         </div>
