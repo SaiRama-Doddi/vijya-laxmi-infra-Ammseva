@@ -87,37 +87,44 @@ export default function Home() {
 
       {/* About Overview Section */}
       <section className="section-pad pt-6 sm:pt-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-12 px-5 lg:px-8">
-          <div className="relative reveal-left">
-            <img
-              src={images.engineersImage}
-              alt="Infrastructure engineers reviewing project plans"
-              loading="lazy"
-              className="h-[380px] sm:h-[440px] lg:h-[480px] xl:h-[500px] w-full rounded-card object-cover shadow-premium"
-            />
-            <div className="absolute -bottom-4 right-4 rounded-card bg-destructive p-4 sm:p-5 text-destructive-foreground shadow-xl sm:-right-4">
-              <strong className="font-numbers text-3xl sm:text-4xl font-black">2014</strong>
-              <span className="block text-[11px] font-bold uppercase tracking-[.15em]">
+        <div className="mx-auto grid max-w-7xl items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12 px-5 lg:px-8">
+          <div className="relative reveal-left flex flex-col h-full min-h-[340px] sm:min-h-[400px] lg:min-h-0">
+            <div className="relative h-full w-full overflow-hidden rounded-card shadow-premium">
+              <img
+                src={images.engineersImage}
+                alt="Infrastructure engineers reviewing project plans"
+                loading="lazy"
+                className="h-full w-full object-cover lg:absolute lg:inset-0"
+              />
+            </div>
+            <div className="absolute -bottom-3 right-3 sm:-bottom-4 sm:right-4 z-10 rounded-card bg-destructive p-3.5 sm:p-5 text-destructive-foreground shadow-xl">
+              <strong className="font-numbers text-2xl sm:text-4xl font-black">2014</strong>
+              <span className="block text-[10px] sm:text-[11px] font-bold uppercase tracking-[.15em]">
                 Established
               </span>
             </div>
           </div>
-          <div className="flex flex-col items-start justify-center reveal-right">
-            <SectionTitle
-              eyebrow="About Vijaya Lakshmi Infra"
-              title="Building Networks That Keep India Moving"
-              copy="Established in 2014 as Vijaya Lakshmi Enterprises, our journey began as a specialized electrical contracting firm, rebranding as Vijaya Lakshmi Infra in 2021 as a premier infrastructure development company across India."
-            />
-            <p className="leading-relaxed text-sm text-muted-foreground text-justify">
-              We specialize in design, erection, shifting, and commissioning of High-Tension (HT) &
-              Low-Tension (LT) power lines, substations, distribution transformer structures, and
-              mini towers, ensuring seamless coordination with government agencies and utility providers.
-            </p>
-            <Button asChild variant="consult" size="lg" className="mt-5 sm:mt-6">
-              <Link to="/about">
-                Discover Our Story <ArrowRight className="ml-1.5 h-4 w-4" />
-              </Link>
-            </Button>
+          <div className="flex flex-col justify-between h-full reveal-right py-0.5">
+            <div>
+              <SectionTitle
+                eyebrow="About Vijaya Lakshmi Infra"
+                title="Building Networks That Keep India Moving"
+                copy="Established in 2014 as Vijaya Lakshmi Enterprises, our journey began as a specialized electrical contracting firm, rebranding as Vijaya Lakshmi Infra in 2021 as a premier infrastructure development company across India."
+                className="!mb-3 sm:!mb-4"
+              />
+              <p className="leading-relaxed text-sm text-muted-foreground text-justify">
+                We specialize in design, erection, shifting, and commissioning of High-Tension (HT) &
+                Low-Tension (LT) power lines, substations, distribution transformer structures, and
+                mini towers, ensuring seamless coordination with government agencies and utility providers.
+              </p>
+            </div>
+            <div className="pt-4 sm:pt-5">
+              <Button asChild variant="consult" size="lg">
+                <Link to="/about">
+                  Discover Our Story <ArrowRight className="ml-1.5 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
