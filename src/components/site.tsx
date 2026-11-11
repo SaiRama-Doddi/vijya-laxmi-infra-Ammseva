@@ -213,20 +213,20 @@ export function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
     <Link
       to="/"
-      className="flex min-w-0 items-center gap-2 sm:gap-3 transition-opacity hover:opacity-95"
+      className="flex min-w-0 items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-95"
       aria-label="Vijaya Lakshmi Infra home"
     >
-      <VLLogoIcon className="h-9 w-9 sm:h-10 sm:w-10 lg:h-11 lg:w-11 shrink-0 drop-shadow-sm transition-transform duration-300 hover:scale-105" />
+      <VLLogoIcon className="h-8 w-8 sm:h-10 sm:w-10 lg:h-11 lg:w-11 shrink-0 drop-shadow-sm transition-transform duration-300 hover:scale-105" />
       <span className="min-w-0 leading-tight">
         <strong
-          className={`block truncate font-display text-xs sm:text-sm lg:text-base font-extrabold uppercase ${
+          className={`block truncate font-display text-[11px] sm:text-sm lg:text-base font-extrabold uppercase tracking-tight ${
             inverse ? "text-primary-foreground" : "text-navy"
           }`}
         >
           Vijaya Lakshmi
         </strong>
         <span
-          className={`block text-[9px] sm:text-[10px] font-semibold uppercase tracking-[.18em] ${
+          className={`block text-[8px] sm:text-[10px] font-semibold uppercase tracking-[.18em] ${
             inverse ? "text-primary-foreground/65" : "text-muted-foreground"
           }`}
         >
@@ -310,7 +310,7 @@ export function FreeConsultancyModal({
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto p-6 sm:p-7 rounded-2xl bg-card border border-border">
+      <DialogContent className="max-w-lg max-h-[calc(100vh-3rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto p-5 sm:p-7 pt-6 sm:pt-7 rounded-2xl bg-card border border-border">
         {isSuccess ? (
           <div className="py-2 text-center">
             <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-success/15 text-success">
@@ -520,7 +520,7 @@ export function Header() {
           : "border-slate-200/60 bg-white/95 shadow-xs backdrop-blur-xl"
       }`}
     >
-      <div className="mx-auto flex h-16 sm:h-18 max-w-7xl items-center justify-between px-3.5 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 sm:h-18 max-w-[1600px] w-full items-center justify-between px-3.5 sm:px-6 lg:px-10 xl:px-14 2xl:px-16 pt-2 sm:pt-0">
         <Logo />
         <nav
           className="hidden items-center justify-center gap-4 lg:gap-5 xl:gap-7 lg:flex"
@@ -630,7 +630,7 @@ export function WhatsAppIcon({ className = "h-6 w-6" }: { className?: string }) 
 export function Footer() {
   return (
     <footer className="bg-navy text-primary-foreground">
-      <div className="mx-auto grid max-w-7xl gap-8 px-5 py-8 sm:py-10 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-[1600px] w-full gap-8 px-5 py-8 sm:py-10 md:grid-cols-2 lg:grid-cols-4 lg:px-10 xl:px-14 2xl:px-16">
         <div className="flex flex-col justify-between">
           <div>
             <Logo inverse />

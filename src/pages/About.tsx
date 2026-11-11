@@ -86,7 +86,7 @@ export default function About() {
             title="Built on field experience. Driven by engineering."
             copy="Over a decade of progressive capability expansion, engineering milestones, and dedicated client service."
           />
-          <div className="relative mt-6 sm:mt-8 grid max-w-6xl gap-5 sm:gap-6 md:grid-cols-3">
+          <div className="relative mt-6 sm:mt-8 grid w-full gap-5 sm:gap-6 md:grid-cols-3">
             {journey.map((item, idx) => (
               <article
                 key={item.year}

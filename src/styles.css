@@ -70,6 +70,7 @@
   --radius-card: 1.25rem;
   --shadow-card: 0 12px 40px -20px oklch(0.25 0.08 250 / 0.2);
   --shadow-premium: 0 24px 60px -22px oklch(0.25 0.12 250 / 0.35);
+  --container-7xl: 96rem;
 }
 
 :root {

@@ -65,15 +65,14 @@ export default function Home() {
           ] as const).map(([val, label], idx) => (
             <div
               key={label}
-              className={`group flex flex-col justify-center items-center text-center sm:items-start sm:text-left rounded-card border border-border/80 bg-card p-5 sm:p-6 shadow-premium transition duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl ${
-                idx === 0
+              className={`group flex flex-col justify-center items-center text-center sm:items-start sm:text-left rounded-card border border-border/80 bg-card p-5 sm:p-6 shadow-premium transition duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl ${idx === 0
                   ? "reveal-left"
                   : idx === 1
-                  ? "reveal-down"
-                  : idx === 2
-                  ? "reveal-up"
-                  : "reveal-right"
-              }`}
+                    ? "reveal-down"
+                    : idx === 2
+                      ? "reveal-up"
+                      : "reveal-right"
+                }`}
             >
               <strong className="font-numbers text-xl font-extrabold text-primary sm:text-2xl lg:text-3xl">
                 <AnimatedCounter value={val} />
@@ -94,7 +93,7 @@ export default function Home() {
               src={images.engineersImage}
               alt="Infrastructure engineers reviewing project plans"
               loading="lazy"
-              className="h-[380px] sm:h-[440px] w-full rounded-card object-cover shadow-premium"
+              className="h-[380px] sm:h-[440px] lg:h-[480px] xl:h-[500px] w-full rounded-card object-cover shadow-premium"
             />
             <div className="absolute -bottom-4 right-4 rounded-card bg-destructive p-4 sm:p-5 text-destructive-foreground shadow-xl sm:-right-4">
               <strong className="font-numbers text-3xl sm:text-4xl font-black">2014</strong>
