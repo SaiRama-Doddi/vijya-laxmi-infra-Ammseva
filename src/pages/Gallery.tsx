@@ -165,6 +165,18 @@ export default function Gallery() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImageIndex, activeCategory]);
 
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedImageIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedImageIndex]);
+
   const categories = [
     { label: "All Photos", value: "All", count: galleryItems.length },
     {
@@ -326,14 +338,14 @@ export default function Gallery() {
       {/* Full HD Lightbox Modal */}
       {selectedItem && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 sm:p-6 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-3 sm:p-6 backdrop-blur-md animate-fade-in"
           onClick={() => setSelectedImageIndex(null)}
         >
           {/* Close Button */}
           <button
             type="button"
             onClick={() => setSelectedImageIndex(null)}
-            className="absolute top-5 right-5 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/40 transition-colors cursor-pointer"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 border border-white/20 text-white hover:bg-black/90 hover:scale-105 transition-all shadow-xl cursor-pointer"
             aria-label="Close Lightbox"
           >
             <X className="h-6 w-6" />
@@ -348,7 +360,7 @@ export default function Gallery() {
                 prev !== null && prev > 0 ? prev - 1 : filteredItems.length - 1
               );
             }}
-            className="absolute left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/40 transition-colors cursor-pointer hidden sm:flex"
+            className="absolute left-3 sm:left-6 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 border border-white/20 text-white hover:bg-black/90 hover:scale-105 transition-all shadow-xl cursor-pointer hidden sm:flex"
             aria-label="Previous Photo"
           >
             <ChevronLeft className="h-7 w-7" />
@@ -363,7 +375,7 @@ export default function Gallery() {
                 prev !== null && prev < filteredItems.length - 1 ? prev + 1 : 0
               );
             }}
-            className="absolute right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/40 transition-colors cursor-pointer hidden sm:flex"
+            className="absolute right-3 sm:right-6 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 border border-white/20 text-white hover:bg-black/90 hover:scale-105 transition-all shadow-xl cursor-pointer hidden sm:flex"
             aria-label="Next Photo"
           >
             <ChevronRight className="h-7 w-7" />
@@ -371,20 +383,20 @@ export default function Gallery() {
 
           {/* Lightbox Content Container */}
           <div
-            className="relative max-w-5xl max-h-[92vh] flex flex-col rounded-2xl overflow-hidden bg-slate-900 border border-white/10 shadow-2xl"
+            className="relative max-w-5xl w-full max-h-[88vh] flex flex-col rounded-2xl overflow-hidden bg-slate-900 border border-white/10 shadow-2xl my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Image Box */}
-            <div className="relative flex items-center justify-center bg-black max-h-[70vh] overflow-hidden">
+            <div className="relative flex items-center justify-center bg-black/80 max-h-[66vh] sm:max-h-[70vh] overflow-hidden p-2">
               <img
                 src={selectedItem.image}
                 alt={selectedItem.title}
-                className="max-h-[70vh] w-auto max-w-full object-contain"
+                className="max-h-[62vh] sm:max-h-[66vh] w-auto max-w-full object-contain rounded-lg"
               />
             </div>
 
             {/* Bottom Caption & Info Bar */}
-            <div className="p-5 bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-white/10">
+            <div className="p-4 sm:p-5 bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="rounded bg-gold/20 text-gold border border-gold/40 px-2.5 py-0.5 text-xs font-bold">
@@ -395,8 +407,8 @@ export default function Gallery() {
                     {selectedItem.location}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-white">{selectedItem.title}</h3>
-                <p className="text-xs text-white/70 mt-1 max-w-2xl">{selectedItem.subtitle}</p>
+                <h3 className="text-base sm:text-lg font-bold text-white">{selectedItem.title}</h3>
+                <p className="text-xs text-white/70 mt-0.5 sm:mt-1 max-w-2xl">{selectedItem.subtitle}</p>
               </div>
 
               <div className="flex items-center gap-2 shrink-0">
