@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { projects, type ProjectItem, images } from "@/components/site";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import {
   Breadcrumb,
@@ -63,6 +64,56 @@ export default function ProjectDetail() {
 
   return (
     <>
+      <SEO
+        title={`${project.title} — ${project.category} | Client: ${project.client}`}
+        description={`${project.title} (${project.category}): ${project.scope} Client: ${project.client}. Location: ${project.location}. Chainage: ${project.chainage}. Executed by Vijaya Lakshmi Infra.`}
+        keywords={`${project.title}, ${project.client}, ${project.category}, ${project.location}, ${project.chainage}, ${project.agreement}, ${project.tags.join(", ")}, Vijaya Lakshmi Infra, electrical utility shifting, NHAI subcontract`}
+        canonicalPath={`/projects/${project.id}`}
+        schema={{
+          "@type": "CreativeWork",
+          "@id": `https://vijayalakshmiinfa.com/projects/${project.id}#project`,
+          "name": project.title,
+          "headline": `${project.title} — ${project.category}`,
+          "description": project.scope,
+          "author": {
+            "@type": "Organization",
+            "name": "Vijaya Lakshmi Infra"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": project.client
+          },
+          "locationCreated": {
+            "@type": "Place",
+            "name": project.location
+          },
+          "datePublished": project.date,
+          "keywords": project.tags.join(", "),
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vijayalakshmiinfa.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "https://vijayalakshmiinfa.com/projects"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": project.title,
+                "item": `https://vijayalakshmiinfa.com/projects/${project.id}`
+              }
+            ]
+          }
+        }}
+      />
       {/* Main Content Layout */}
       <section className="section-pad bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">

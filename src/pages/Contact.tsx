@@ -14,12 +14,9 @@ import {
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon, images } from "@/components/site";
+import { SEO } from "@/components/SEO";
 
 export default function Contact() {
-  useEffect(() => {
-    document.title = "Contact Vijaya Lakshmi Infra";
-  }, []);
-
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -82,6 +79,50 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Vijaya Lakshmi Infra | Request Free Technical Estimation & Consultation"
+        description="Get in touch with Vijaya Lakshmi Infra for electrical and civil infrastructure contracting, technical BOQ estimation, HT/LT transmission projects, and utility shifting."
+        keywords="contact Vijaya Lakshmi Infra, electrical contractor phone number, Tiruvannamalai office, Anuraag Cherukuri contact, infrastructure consultancy, BOQ estimation, HT line quotation, utility shifting contractor contact"
+        canonicalPath="/contact"
+        schema={{
+          "@type": "ContactPage",
+          "@id": "https://vijayalakshmiinfa.com/contact#contactpage",
+          "name": "Contact Vijaya Lakshmi Infra",
+          "url": "https://vijayalakshmiinfa.com/contact",
+          "description": "Contact form, office address, phone numbers, and direct consultation for Vijaya Lakshmi Infra.",
+          "mainEntity": {
+            "@type": "LocalBusiness",
+            "name": "Vijaya Lakshmi Infra",
+            "telephone": "+91-8374091205",
+            "email": "vijayalakshmiinfra@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Polur Road, Near Old Bus Stand, Shop No-1, Old SBI Building 2nd Floor",
+              "addressLocality": "Tiruvannamalai",
+              "addressRegion": "Tamil Nadu",
+              "postalCode": "606601",
+              "addressCountry": "IN"
+            }
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vijayalakshmiinfa.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://vijayalakshmiinfa.com/contact"
+              }
+            ]
+          }
+        }}
+      />
       <section className="pt-3 sm:pt-5 pb-12 sm:pb-16 bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Enquiry Form and Map / Office Container */}

@@ -1,13 +1,15 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 
 export default function NotFound() {
-  useEffect(() => {
-    document.title = "404 Page Not Found — Vijaya Lakshmi Infra";
-  }, []);
-
   return (
-    <div className="flex min-h-[70vh] items-center justify-center bg-background px-4 py-16">
+    <>
+      <SEO
+        title="404 Page Not Found"
+        description="The requested page could not be found."
+        canonicalPath="/404"
+      />
+      <div className="flex min-h-[70vh] items-center justify-center bg-background px-4 py-16">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-extrabold text-primary">404</h1>
         <h2 className="mt-4 text-2xl font-bold text-navy">Page Not Found</h2>
@@ -24,5 +26,6 @@ export default function NotFound() {
         </div>
       </div>
     </div>
-  );
+  </>
+);
 }

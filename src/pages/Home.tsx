@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,14 +9,27 @@ import {
   SectionTitle,
   images,
 } from "@/components/site";
+import { SEO } from "@/components/SEO";
 
 export default function Home() {
-  useEffect(() => {
-    document.title = "Vijaya Lakshmi Infra — Electrical & Civil Contractors";
-  }, []);
-
   return (
     <>
+      <SEO
+        title="Vijaya Lakshmi Infra — Leading Electrical & Civil Contractors in India | HT/LT Substation & Utility Shifting"
+        description="Vijaya Lakshmi Infra (formerly Vijaya Lakshmi Enterprises) is India's trusted infrastructure contractor specializing in HT/LT transmission line stringing, 33/11kV substations, NHAI highway utility shifting, and turnkey engineering solutions since 2014."
+        keywords="Vijaya Lakshmi Infra, Vijaya Lakshmi Enterprises, VL Infra, electrical contractors India, civil infrastructure contractor, HT LT transmission lines, 33 11kV substation construction, NHAI highway utility shifting, distribution transformer installation, RDSS scheme feeder segregation, power transmission towers, Dilip Buildcon electrical subcontractor, Tamil Nadu infrastructure contractors, Keelapalur Keelaiyur, Keelapalur Tamil Nadu, Keelaiyur Ariyalur, Keelaiyur Keelapalur, Keelapalur substation, Keelapalur electrical contractor,Keelapalur infra,Keelapalur,Keelaiyur, Anuraag Cherukuri, power line shifting, EPC infrastructure India"
+        canonicalPath="/"
+        schema={{
+          "@type": "WebPage",
+          "@id": "https://vijayalakshmiinfa.com/#webpage",
+          "name": "Vijaya Lakshmi Infra — Premier Electrical & Civil Infrastructure Contractors",
+          "url": "https://vijayalakshmiinfa.com/",
+          "description": "Leading infrastructure development company in India specializing in high-tension electrical contracting and civil works.",
+          "isPartOf": {
+            "@id": "https://vijayalakshmiinfa.com/#website"
+          }
+        }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-18 lg:pt-12">
         <img

@@ -1,11 +1,7 @@
-import { useEffect } from "react";
 import { ProjectCards, SectionTitle } from "@/components/site";
+import { SEO } from "@/components/SEO";
 
 export default function Projects() {
-  useEffect(() => {
-    document.title = "Project Experience — Vijaya Lakshmi Infra";
-  }, []);
-
   const milestones = [
     ["2014", "Enterprise established with initial regional electrical contracts"],
     ["2019", "Executed milestone NH-227 road-widening utility corridor subcontract"],
@@ -26,6 +22,36 @@ export default function Projects() {
 
   return (
     <>
+      <SEO
+        title="Major Infrastructure Projects Portfolio — Vijaya Lakshmi Infra | NHAI Utility Shifting & RDSS Works"
+        description="Explore 10+ completed and ongoing critical infrastructure projects by Vijaya Lakshmi Infra including NHAI highway utility shifting, Bangalore–Chennai Expressway, Dilip Buildcon NH-332 packages, and TANGEDCO RDSS feeder segregation."
+        keywords="Vijaya Lakshmi Infra projects, NHAI utility shifting projects, Dilip Buildcon subcontractor, Bangalore Chennai Expressway Package IV, NH-332 Puducherry Villupuram, NH-205 Tiruvallur Veppampattu, NH-716B Chittoor Thatchur, CPRR Chennai Peripheral Ring Road, TANGEDCO RDSS 11kV feeder segregation, Keelapalur Tamil Nadu"
+        canonicalPath="/projects"
+        schema={{
+          "@type": "CollectionPage",
+          "@id": "https://vijayalakshmiinfa.com/projects#collection",
+          "name": "Vijaya Lakshmi Infra Project Portfolio",
+          "url": "https://vijayalakshmiinfa.com/projects",
+          "description": "Comprehensive list of completed and ongoing electrical and civil infrastructure projects across India.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vijayalakshmiinfa.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "https://vijayalakshmiinfa.com/projects"
+              }
+            ]
+          }
+        }}
+      />
       {/* Featured Projects Grid */}
       <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">

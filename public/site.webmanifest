@@ -1,0 +1,22 @@
+{
+  "name": "Vijaya Lakshmi Infra",
+  "short_name": "VL Infra",
+  "description": "Leading Electrical & Civil Engineering Contractors across India. Specialized in HT/LT transmission lines, substations, and NHAI utility shifting.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B2545",
+  "theme_color": "#0B2545",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+

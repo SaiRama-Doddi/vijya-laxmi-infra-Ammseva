@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
   Award,
   Building2,
@@ -17,12 +16,9 @@ import {
   SectionTitle,
   images,
 } from "@/components/site";
+import { SEO } from "@/components/SEO";
 
 export default function About() {
-  useEffect(() => {
-    document.title = "About Us — Vijaya Lakshmi Infra";
-  }, []);
-
   const values = [
     [ShieldCheck, "Safety First", "Zero compromise on field safety protocols and risk mitigation."],
     [
@@ -78,6 +74,36 @@ export default function About() {
 
   return (
     <>
+      <SEO
+        title="About Us — Vijaya Lakshmi Infra | Infrastructure Engineering Excellence Since 2014"
+        description="Founded in 2014 as Vijaya Lakshmi Enterprises and rebranded as Vijaya Lakshmi Infra in 2021, we deliver high-voltage transmission, 33/11kV substations, and highway utility shifting across India led by Anuraag Cherukuri."
+        keywords="About Vijaya Lakshmi Infra, Vijaya Lakshmi Enterprises history, Anuraag Cherukuri, infrastructure contractors India, electrical engineering company, corporate profile, TANGEDCO contractor, NHAI contractor, transmission line engineers"
+        canonicalPath="/about"
+        schema={{
+          "@type": "AboutPage",
+          "@id": "https://vijayalakshmiinfa.com/about#webpage",
+          "name": "About Vijaya Lakshmi Infra",
+          "url": "https://vijayalakshmiinfa.com/about",
+          "description": "Company profile, 10-year journey, core values, and leadership team of Vijaya Lakshmi Infra.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vijayalakshmiinfa.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About Us",
+                "item": "https://vijayalakshmiinfa.com/about"
+              }
+            ]
+          }
+        }}
+      />
       {/* Our Journey */}
       <section className="section-pad bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">

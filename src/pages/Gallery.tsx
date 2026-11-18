@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SectionTitle } from "@/components/site";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import {
   ZoomIn,
@@ -197,6 +198,36 @@ export default function Gallery() {
 
   return (
     <>
+      <SEO
+        title="On-Site Execution & Project Gallery — Vijaya Lakshmi Infra | Substations & Power Lines"
+        description="Authentic on-site photographs of Vijaya Lakshmi Infra's projects across India: cable terminations, high-voltage tower erection, highway utility corridors, and substation yards."
+        keywords="site gallery, substation photos, power line stringing photos, cable terminations, tower erection images, highway utility shifting gallery, civil foundation images, Vijaya Lakshmi Infra field work"
+        canonicalPath="/gallery"
+        schema={{
+          "@type": "ImageGallery",
+          "@id": "https://vijayalakshmiinfa.com/gallery#gallery",
+          "name": "Vijaya Lakshmi Infra Site Photo Gallery",
+          "url": "https://vijayalakshmiinfa.com/gallery",
+          "description": "Authentic on-site photographs capturing cable terminations, tower erection, highway utility corridors, and substation works.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vijayalakshmiinfa.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Gallery",
+                "item": "https://vijayalakshmiinfa.com/gallery"
+              }
+            ]
+          }
+        }}
+      />
       <section className="section-pad bg-background">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Header Title Banner */}

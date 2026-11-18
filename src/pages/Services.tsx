@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { SectionTitle, serviceItems, images, FreeConsultancyModal } from "@/components/site";
+import { SEO } from "@/components/SEO";
 
 import surveyImg from "@/assets/process/survey.jpg";
 import designImg from "@/assets/process/design.jpg";
@@ -250,6 +251,63 @@ export default function Services() {
 
   return (
     <>
+      <SEO
+        title="Electrical & Civil Infrastructure Services — Vijaya Lakshmi Infra | HT/LT Power Lines & Substations"
+        description="Comprehensive infrastructure services by Vijaya Lakshmi Infra: 33kV/11kV substations, HT/LT transmission line stringing, NHAI highway utility shifting, distribution transformer structures (DTR), and civil engineering."
+        keywords="HT LT transmission lines, 33/11kV substation construction, highway utility shifting services, distribution transformer erection, underground cable trenching, feeder segregation, baby towers, civil foundation engineering, electrical EPC services India, RDSS scheme electrical execution, TANGEDCO electrical services"
+        canonicalPath="/services"
+        schema={{
+          "@type": "Service",
+          "@id": "https://vijayalakshmiinfa.com/services#service",
+          "name": "Electrical & Civil Infrastructure Contracting Services",
+          "serviceType": "Infrastructure & Electrical EPC Contracting",
+          "provider": {
+            "@id": "https://vijayalakshmiinfa.com/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Infrastructure Services Catalog",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "HT/LT Transmission Lines",
+                  "description": "Survey, planning, tower erection, line stringing, and commissioning of High-Tension and Low-Tension overhead transmission lines."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Substations up to 33/11kV",
+                  "description": "Complete construction, transformer installation, busbar alignment, control room cabling, and bay extension for 33/11kV substations."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Highway Utility Shifting",
+                  "description": "Safe dismantling, realignment, and re-erection of electrical lines and DTRs for NHAI national and state highway expansions."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "RDSS Agricultural Feeder Segregation",
+                  "description": "11kV feeder segregation and distribution network restructuring under the Government of India RDSS scheme."
+                }
+              }
+            ]
+          }
+        }}
+      />
       {/* Electrical & Civil Capabilities Carousels */}
       <section className="section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12 sm:space-y-16">
