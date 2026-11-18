@@ -152,11 +152,16 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    box-sizing: border-box;
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 4.5rem;
+    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100vw;
+    width: 100%;
   }
 
   body {
@@ -164,6 +169,17 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
+  }
+
+  #root {
+    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100vw;
+    width: 100%;
   }
   h1,
   h2,
@@ -327,6 +343,14 @@ article p,
 
 .reveal-right {
   transform: translate3d(36px, 0, 0);
+}
+
+/* Prevent horizontal overflow on mobile from directional reveals */
+@media (max-width: 768px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translate3d(0, 24px, 0);
+  }
 }
 
 .reveal-up {

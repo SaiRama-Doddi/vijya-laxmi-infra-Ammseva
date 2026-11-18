@@ -31,17 +31,17 @@ export default function Home() {
         }}
       />
       {/* Hero Section */}
-      <section className="relative overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-18 lg:pt-12">
+      <section className="relative w-full max-w-full overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-18 lg:pt-12">
         <img
           src={images.heroImage}
           alt="Engineers at a high-voltage substation in India"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover min-w-full"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-hero-overlay" />
-        <div className="blueprint absolute inset-0 opacity-20" />
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="absolute inset-0 w-full h-full bg-hero-overlay" />
+        <div className="blueprint absolute inset-0 w-full h-full opacity-20" />
+        <div className="relative mx-auto w-full max-w-7xl px-5 lg:px-8">
           <div className="max-w-3xl flex flex-col items-start justify-center">
             <Eyebrow light>Engineering excellence in infrastructure development</Eyebrow>
             <h1 className="font-display text-3xl font-extrabold leading-[1.08] text-primary-foreground sm:text-5xl lg:text-6xl">
@@ -67,8 +67,8 @@ export default function Home() {
       </section>
 
       {/* Overlapping Stats Grid */}
-      <div className="relative z-20 -mt-8 mx-auto max-w-7xl px-5 sm:-mt-10 lg:-mt-12 lg:px-8">
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+      <div className="relative z-20 -mt-8 mx-auto w-full max-w-7xl px-5 sm:-mt-10 lg:-mt-12 lg:px-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5 w-full">
           {([
             ["10+", "Years Experience"],
             ["10+", "Infrastructure Projects"],

@@ -893,7 +893,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
     <>
       <Header />
       <div className="h-16 sm:h-18 shrink-0" aria-hidden="true" />
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen w-full max-w-full overflow-x-hidden">{children}</main>
       <Footer />
       <StickyContactActions />
     </>
@@ -1173,7 +1173,7 @@ export function FeatureGrid({
   if (autoScroll) {
     const duplicated = [...items, ...items, ...items];
     return (
-      <div className="relative -mx-5 sm:-mx-8 overflow-hidden py-4">
+      <div className="relative w-auto -mx-5 sm:-mx-8 overflow-hidden py-4">
         <div className="animate-marquee pause-on-hover flex gap-6 px-6 py-2">
           {duplicated.map(([Icon, title, desc], idx) => (
             <article
