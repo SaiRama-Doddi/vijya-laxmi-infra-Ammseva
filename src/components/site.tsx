@@ -1649,18 +1649,18 @@ export function ProjectCards({
               </div>
             </div>
 
-            <div className="px-5 sm:px-6 pb-5 pt-3 flex items-center justify-between border-t border-border/50">
-              <span className="text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
+            <div className="px-5 sm:px-6 pb-5 pt-3.5 border-t border-border/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <span className="text-xs font-semibold text-muted-foreground flex items-center gap-1.5 min-w-0">
                 <Building2 className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span className="truncate max-w-[170px] sm:max-w-[220px]">{p.client}</span>
+                <span className="truncate sm:max-w-[240px]">{p.client}</span>
               </span>
 
               <Link
                 to={`/projects/${p.id}`}
-                className="text-xs font-bold text-primary inline-flex items-center gap-1.5 hover:text-navy cursor-pointer transition-colors group/btn"
+                className="w-full sm:w-auto text-center justify-center sm:justify-start rounded-lg bg-primary-soft sm:bg-transparent py-2.5 sm:py-0 px-3.5 sm:px-0 text-xs font-bold text-primary inline-flex items-center gap-1.5 hover:text-navy hover:bg-primary/10 sm:hover:bg-transparent cursor-pointer transition-all group/btn shrink-0 whitespace-nowrap border border-primary/20 sm:border-0"
               >
-                View Scope & Details{" "}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
+                <span>View Scope &amp; Details</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1 shrink-0" />
               </Link>
             </div>
           </article>

@@ -210,11 +210,12 @@ export default function ProjectDetail() {
               </div>
 
               {/* Scope of Work Section */}
-              <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card">
-                <div className="flex items-center gap-2 border-b border-border/80 pb-4 mb-5">
-                  <FileText className="h-5 w-5 text-primary" />
-                  <h2 className="text-xl sm:text-2xl font-bold text-navy">
-                    Scope of Work & Engineering Specification
+              <div className="rounded-2xl border border-border bg-card p-5 sm:p-8 shadow-card">
+                <div className="flex items-start gap-2.5 border-b border-border/80 pb-4 mb-5">
+                  <FileText className="h-5 w-5 text-primary shrink-0 mt-0.5 sm:mt-1" />
+                  <h2 className="text-[17px] sm:text-2xl font-bold text-navy leading-snug">
+                    <span className="block">Scope of Work &amp;</span>
+                    <span className="block">Engineering Specification</span>
                   </h2>
                 </div>
 
@@ -248,10 +249,14 @@ export default function ProjectDetail() {
               </div>
 
               {/* Technical Highlights & Deliverables */}
-              <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card">
-                <h3 className="text-lg font-bold text-navy mb-4">
-                  Project Highlights & Key Features
-                </h3>
+              <div className="rounded-2xl border border-border bg-card p-5 sm:p-8 shadow-card">
+                <div className="flex items-start gap-2.5 border-b border-border/80 pb-4 mb-5">
+                  <Layers className="h-5 w-5 text-primary shrink-0 mt-0.5 sm:mt-1" />
+                  <h3 className="text-[17px] sm:text-xl font-bold text-navy leading-snug">
+                    <span className="block">Project Highlights &amp;</span>
+                    <span className="block">Key Features</span>
+                  </h3>
+                </div>
                 <div className="flex flex-wrap gap-2.5">
                   {project.tags.map((tag) => (
                     <span
