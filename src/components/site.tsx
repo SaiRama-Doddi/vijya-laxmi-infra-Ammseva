@@ -1332,14 +1332,11 @@ export const projects: ProjectItem[] = [
     title: "NH-227 Road Widening",
     category: "Highway Utility Shifting",
     scope:
-      "Shift and erect HT/LT lines, baby towers and DTRs for the NHAI road-widening project, CH 78+120 to 98+340. Subcontract work.",
+      "Shift and erect HT/LT lines, baby towers and DTRs for the NHAI road-widening project. Subcontract work.",
     client: "SRR Projects",
     clientLocation: "Keelapalur, Tamil Nadu",
-    agreement: "SRR Projects/WO/E.Shift/2018-19/07",
-    date: "01.02.2019",
     status: "Completed",
     location: "Keelapalur, Tamil Nadu",
-    chainage: "CH 78+120 to 98+340",
     image: civilImage,
     tags: ["NHAI Road Widening", "HT/LT Lines & DTRs", "Baby Towers"],
   },
@@ -1352,11 +1349,8 @@ export const projects: ProjectItem[] = [
       "Shift and erect HT/LT lines, baby towers and DTRs for the four-lane Bangalore–Chennai Expressway, Package IV.",
     client: "RCCL Srikanche Expressway Pvt Ltd",
     clientLocation: "Tamil Nadu",
-    agreement: "RSEPL/LOI/WO-UTY/2021/001",
-    date: "23.11.2021",
     status: "Completed",
     location: "Tamil Nadu",
-    chainage: "Expressway Package IV",
     image: heroImage,
     tags: ["4-Lane Expressway", "Package IV", "Baby Towers & DTRs"],
   },
@@ -1369,11 +1363,8 @@ export const projects: ProjectItem[] = [
       "11 kV Rural Agri Feeder Segregation (K2) work under the Government of India RDSS scheme.",
     client: "TANGEDCO",
     clientLocation: "Additional Chief Engineer, Kanchipuram",
-    agreement: "ACE/KEDC/KPM/AEE.MM/AE/D.No.817/2022",
-    date: "25.07.2022",
     status: "Completed",
     location: "Kanchipuram, Tamil Nadu",
-    chainage: "11 kV K2 Feeder Network",
     image: substationImage,
     tags: ["RDSS Scheme", "11 kV Agri Feeder", "TANGEDCO Govt EPC"],
   },
@@ -1386,11 +1377,8 @@ export const projects: ProjectItem[] = [
       "11 kV Rural Agri Feeder Segregation (K2) work under the Government of India RDSS scheme.",
     client: "TANGEDCO",
     clientLocation: "Additional Chief Engineer, Kanchipuram",
-    agreement: "ACE/KEDC/KPM/AEE.MM/AE/D.No.827/2022",
-    date: "26.07.2022",
     status: "Completed",
     location: "Kanchipuram, Tamil Nadu",
-    chainage: "11 kV K2 Feeder Network",
     image: engineersImage,
     tags: ["RDSS Scheme", "Feeder Segregation", "TANGEDCO Govt EPC"],
   },
@@ -1400,14 +1388,11 @@ export const projects: ProjectItem[] = [
     title: "Puducherry–Poondiyankuppam / NH-332",
     category: "Highway Utility Shifting",
     scope:
-      "Shift and erect HT/LT lines, baby towers and DTRs for four-laning of NH-45A (New NH-332), km 29.000 to km 67.000, Package II, Tamil Nadu.",
+      "Shift and erect HT/LT lines, baby towers and DTRs for four-laning of NH-45A (New NH-332), Package II, Tamil Nadu.",
     client: "Dilip Buildcon Limited",
     clientLocation: "Bhopal, Madhya Pradesh",
-    agreement: "DBL/WO/HO/Puducherry to Poondiyankuppam/2022/071",
-    date: "2022",
     status: "Completed",
     location: "Tamil Nadu & Puducherry",
-    chainage: "Km 29.000 to Km 67.000 (Package II)",
     image: civilImage,
     tags: ["NH-45A / New NH-332", "Dilip Buildcon", "Package II"],
   },
@@ -1417,14 +1402,11 @@ export const projects: ProjectItem[] = [
     title: "Villupuram–Puducherry / NH-332",
     category: "Highway Utility Shifting",
     scope:
-      "Four-laning of the Villupuram–Puducherry section of NH-45A (New NH-332), km 0.000 to km 29.000, Package I, Tamil Nadu.",
+      "Four-laning of the Villupuram–Puducherry section of NH-45A (New NH-332), Package I, Tamil Nadu.",
     client: "Dilip Buildcon Limited",
     clientLocation: "Bhopal, Madhya Pradesh",
-    agreement: "DBL/WO/HO/Villupuram Puducherry/2023/011",
-    date: "30.01.2023",
     status: "Completed",
     location: "Villupuram – Puducherry, Tamil Nadu",
-    chainage: "Km 0.000 to Km 29.000 (Package I)",
     image: heroImage,
     tags: ["NH-45A / New NH-332", "Dilip Buildcon", "Package I"],
   },
@@ -1434,14 +1416,11 @@ export const projects: ProjectItem[] = [
     title: "Tiruvallur–Veppampattu / NH-205",
     category: "Highway Utility Shifting",
     scope:
-      "Balance four-lane work from km 43.950 (Thiruvallur Bypass) to km 61.470 (Veppampattu Bypass), through Thaneerkulam, Thozur and Sevvapet Bypass (17.520 km), on the Tirupathi–Tiruttani–Chennai section of NH-205, Tamil Nadu.",
+      "Balance four-lane work from Thiruvallur Bypass to Veppampattu Bypass, through Thaneerkulam, Thozur and Sevvapet Bypass, on the Tirupathi–Tiruttani–Chennai section of NH-205, Tamil Nadu.",
     client: "EKK Infrastructure Limited",
     clientLocation: "Perumbavoor, Ernakulam, Kerala",
-    agreement: "EIL/205-29/22-23",
-    date: "11.03.2023",
     status: "Completed",
     location: "Tiruvallur – Veppampattu, Tamil Nadu",
-    chainage: "Km 43.950 to Km 61.470 (17.520 km)",
     image: civilImage,
     tags: ["NH-205 Tirupathi–Chennai", "17.52 km Corridor", "EKK Infrastructure"],
   },
@@ -1451,14 +1430,11 @@ export const projects: ProjectItem[] = [
     title: "Chittoor–Thatchur / NH-716B",
     category: "Highway Utility Shifting",
     scope:
-      "Shift existing HT/LT overhead lines for the proposed six-lane highway, CH 51+000 to CH 55+600, Pallipet and Poddutturpet section of NH-716B, Tamil Nadu.",
+      "Shift existing HT/LT overhead lines for the proposed six-lane highway, Pallipet and Poddutturpet section of NH-716B, Tamil Nadu.",
     client: "EKK Infrastructure Limited",
     clientLocation: "Perumbavoor, Ernakulam, Kerala",
-    agreement: "EIL/300-5/23-24",
-    date: "10.06.2023",
     status: "Completed",
     location: "Pallipet & Poddutturpet, Tamil Nadu",
-    chainage: "CH 51+000 to CH 55+600",
     image: substationImage,
     tags: ["Six-Lane NH-716B", "HT/LT Line Shift", "EKK Infrastructure"],
   },
@@ -1468,14 +1444,11 @@ export const projects: ProjectItem[] = [
     title: "Vengathur–Sengadu / CPRR",
     category: "Highway Utility Shifting",
     scope:
-      "Shift existing HT/LT overhead lines for the proposed six-lane highway, CH 58+200 to CH 68+200, Thiruvallur section of CPRR, EPC Package 04, Tamil Nadu.",
+      "Shift existing HT/LT overhead lines for the proposed six-lane highway, Thiruvallur section of CPRR, EPC Package 04, Tamil Nadu.",
     client: "RR Infra",
     clientLocation: "Vinayaga Nagar, Madurai, Tamil Nadu",
-    agreement: "Ongoing works – as listed in profile",
-    date: "Ongoing",
     status: "Ongoing",
     location: "Thiruvallur section, Tamil Nadu",
-    chainage: "CH 58+200 to CH 68+200 (Package 04)",
     image: heroImage,
     tags: ["Chennai Peripheral Ring Road", "Six-Lane EPC Package 04", "Active Execution"],
   },
@@ -1485,16 +1458,41 @@ export const projects: ProjectItem[] = [
     title: "Sriperumbudur–Karapattai / NH-48",
     category: "Highway Utility Shifting",
     scope:
-      "Shift existing HT/LT overhead lines for the four-laning project on NH-48, CH 37+000 to CH 69+800, Tamil Nadu.",
+      "Shift existing HT/LT overhead lines for the four-laning project on NH-48, Tamil Nadu.",
     client: "P & C Projects (P) Ltd.",
     clientLocation: "Perundurai Road, Erode, Tamil Nadu",
-    agreement: "Ongoing works – as listed in profile",
-    date: "Ongoing",
     status: "Ongoing",
     location: "Sriperumbudur to Karapattai, Tamil Nadu",
-    chainage: "CH 37+000 to CH 69+800 (32.8 km)",
     image: civilImage,
     tags: ["NH-48 Four-Laning", "32.8 km Corridor", "Active Execution"],
+  },
+  {
+    id: "sh-115-knrcl",
+    no: "11",
+    title: "State Highway SH-115 / CKICP",
+    category: "Highway Utility Shifting",
+    scope:
+      "Utility shifting and erection of HT/LT electrical lines and transformer structures for State Highway SH-115 under the Chennai–Kanyakumari Industrial Corridor Project (CKICP).",
+    client: "KNRCL",
+    clientLocation: "Tamil Nadu",
+    status: "Completed",
+    location: "Tamil Nadu",
+    image: substationImage,
+    tags: ["State Highway SH-115", "CKICP (109 KM)", "KNRCL"],
+  },
+  {
+    id: "nh-66-spk",
+    no: "12",
+    title: "National Highway NH-66",
+    category: "Highway Utility Shifting",
+    scope:
+      "Utility shifting, overhead HT/LT line realignment, and electrical distribution network works for National Highway NH-66 expansion.",
+    client: "SPK & CO",
+    clientLocation: "Tamil Nadu",
+    status: "Completed",
+    location: "Tamil Nadu",
+    image: heroImage,
+    tags: ["National Highway NH-66", "Utility Realignment", "SPK & CO"],
   },
 ];
 
@@ -1637,28 +1635,6 @@ export function ProjectCards({
                   {p.scope}
                 </p>
 
-                {/* Scope & Agreement Badges */}
-                {showAgreement && (
-                  <div className="mt-4 rounded-lg bg-primary-soft/60 p-3 text-xs border border-primary/10 space-y-1.5">
-                    <div className="flex items-start justify-between gap-2">
-                      <span className="font-semibold text-slate-600 shrink-0 flex items-center gap-1">
-                        <FileText className="h-3.5 w-3.5 text-primary" /> Agreement:
-                      </span>
-                      <span className="font-mono text-[11px] text-navy font-semibold text-right break-all">
-                        {p.agreement}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="font-semibold text-slate-600 shrink-0 flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-primary" /> Date:
-                      </span>
-                      <span className="font-medium text-navy text-right font-numbers text-[11px]">
-                        {p.date}
-                      </span>
-                    </div>
-                  </div>
-                )}
-
                 {/* Tag Pills */}
                 <div className="mt-3.5 flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
@@ -1673,9 +1649,10 @@ export function ProjectCards({
               </div>
             </div>
 
-            <div className="px-5 sm:px-6 pb-5 pt-2 flex items-center justify-between border-t border-border/50">
-              <span className="text-xs font-semibold text-muted-foreground">
-                {p.chainage ? p.chainage : "Turnkey Execution"}
+            <div className="px-5 sm:px-6 pb-5 pt-3 flex items-center justify-between border-t border-border/50">
+              <span className="text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
+                <Building2 className="h-3.5 w-3.5 text-primary shrink-0" />
+                <span className="truncate max-w-[170px] sm:max-w-[220px]">{p.client}</span>
               </span>
 
               <Link

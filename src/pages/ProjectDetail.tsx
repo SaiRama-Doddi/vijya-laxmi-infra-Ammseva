@@ -13,8 +13,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   ArrowLeft,
-  ArrowRight,
-  Calendar,
   CheckCircle2,
   FileText,
   MapPin,
@@ -24,7 +22,6 @@ import {
   Phone,
   Mail,
   ShieldCheck,
-  Route,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -66,8 +63,8 @@ export default function ProjectDetail() {
     <>
       <SEO
         title={`${project.title} — ${project.category} | Client: ${project.client}`}
-        description={`${project.title} (${project.category}): ${project.scope} Client: ${project.client}. Location: ${project.location}. Chainage: ${project.chainage}. Executed by Vijaya Lakshmi Infra.`}
-        keywords={`${project.title}, ${project.client}, ${project.category}, ${project.location}, ${project.chainage}, ${project.agreement}, ${project.tags.join(", ")}, Vijaya Lakshmi Infra, electrical utility shifting, NHAI subcontract`}
+        description={`${project.title} (${project.category}): ${project.scope} Client: ${project.client}. Location: ${project.location}. Executed by Vijaya Lakshmi Infra.`}
+        keywords={`${project.title}, ${project.client}, ${project.category}, ${project.location}, ${project.tags.join(", ")}, Vijaya Lakshmi Infra, electrical utility shifting, NHAI subcontract`}
         canonicalPath={`/projects/${project.id}`}
         schema={{
           "@type": "CreativeWork",
@@ -87,7 +84,6 @@ export default function ProjectDetail() {
             "@type": "Place",
             "name": project.location
           },
-          "datePublished": project.date,
           "keywords": project.tags.join(", "),
           "breadcrumb": {
             "@type": "BreadcrumbList",
@@ -191,12 +187,6 @@ export default function ProjectDetail() {
                 <MapPin className="h-4 w-4 text-destructive shrink-0" />
                 <strong className="text-navy">Location:</strong> {project.location}
               </span>
-              {project.chainage && (
-                <span className="flex items-center gap-1.5">
-                  <Route className="h-4 w-4 text-gold shrink-0" />
-                  <strong className="text-navy">Chainage:</strong> {project.chainage}
-                </span>
-              )}
             </div>
           </div>
 
@@ -282,98 +272,8 @@ export default function ProjectDetail() {
               </div>
             </div>
 
-            {/* Right Column: Project Dossier / Agreement Details Card */}
-            <div className="lg:col-span-4 space-y-6 reveal-right">
-              {/* Official Credentials Dossier */}
-              <div className="rounded-2xl border-2 border-primary/20 bg-card overflow-hidden shadow-premium">
-                <div className="bg-navy p-5 text-white">
-                  <div className="text-[11px] font-extrabold uppercase tracking-widest text-gold mb-1">
-                    CONTRACT SPECIFICATIONS
-                  </div>
-                  <h3 className="text-lg font-bold text-white">Official Project Dossier</h3>
-                </div>
-
-                <div className="p-5 sm:p-6 space-y-4 text-xs divide-y divide-border/60">
-                  <div className="pt-2 first:pt-0">
-                    <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
-                      Client / Contractor
-                    </span>
-                    <span className="font-bold text-navy text-sm block">{project.client}</span>
-                    <span className="text-muted-foreground mt-0.5 block">
-                      {project.clientLocation}
-                    </span>
-                  </div>
-
-                  <div className="pt-4">
-                    <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
-                      Agreement / Work Order No.
-                    </span>
-                    <span
-                      title={project.agreement}
-                      className="font-mono text-[11px] sm:text-xs font-bold text-navy bg-primary-soft/80 p-2 rounded border border-primary/15 block whitespace-nowrap overflow-x-auto no-scrollbar"
-                      style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-                    >
-                      {project.agreement}
-                    </span>
-                  </div>
-
-                  <div className="pt-4 grid grid-cols-2 gap-3">
-                    <div>
-                      <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
-                        Agreement Date
-                      </span>
-                      <span className="font-numbers font-bold text-navy text-xs flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-primary" />
-                        {project.date}
-                      </span>
-                    </div>
-
-                    <div>
-                      <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
-                        Execution Status
-                      </span>
-                      <span
-                        className={`font-bold text-xs inline-flex items-center gap-1 ${
-                          project.status === "Completed" ? "text-emerald-600" : "text-amber-600"
-                        }`}
-                      >
-                        <CheckCircle2 className="h-3.5 w-3.5" />
-                        {project.status}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4">
-                    <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
-                      Site Location
-                    </span>
-                    <span className="font-semibold text-navy text-xs flex items-center gap-1">
-                      <MapPin className="h-3.5 w-3.5 text-destructive shrink-0" />
-                      {project.location}
-                    </span>
-                  </div>
-
-                  {project.chainage && (
-                    <div className="pt-4">
-                      <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
-                        Chainage / Corridor Length
-                      </span>
-                      <span className="font-semibold text-primary text-xs flex items-center gap-1">
-                        <Route className="h-3.5 w-3.5 text-primary shrink-0" />
-                        {project.chainage}
-                      </span>
-                    </div>
-                  )}
-
-                  <div className="pt-4">
-                    <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px] block mb-1">
-                      Category
-                    </span>
-                    <span className="font-bold text-navy text-xs">{project.category}</span>
-                  </div>
-                </div>
-              </div>
-
+            {/* Right Column: Project Inquiry & Quick Contact */}
+            <div className="lg:col-span-4 space-y-6 reveal-right lg:sticky lg:top-24">
               {/* Consultation / Contact Box */}
               <div className="rounded-2xl border border-primary/20 bg-primary-soft/50 p-6 shadow-card">
                 <h4 className="font-bold text-navy text-base">Inquire About This Project</h4>
@@ -425,10 +325,6 @@ export default function ProjectDetail() {
             ) : (
               <div />
             )}
-
-            <Button asChild variant="secondary" size="sm">
-              <Link to="/projects">View All 10 Projects</Link>
-            </Button>
 
             {nextProject ? (
               <Button asChild variant="outline" className="w-full sm:w-auto justify-end">

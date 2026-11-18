@@ -22,8 +22,6 @@ import roadCorridorImg from "@/assets/gallery/road-corridor.jpg";
 import lineInfrastructureImg from "@/assets/gallery/line-infrastructure.jpg";
 import towerLandscapeImg from "@/assets/gallery/tower-landscape.jpg";
 import highwayNetworkImg from "@/assets/gallery/highway-network.jpg";
-import transmissionNetworkImg from "@/assets/gallery/transmission-network.jpg";
-import substationYardImg from "@/assets/gallery/substation-yard.jpg";
 import civilFoundationsImg from "@/assets/gallery/civil-foundations.jpg";
 import fieldEngineersImg from "@/assets/gallery/field-engineers.jpg";
 
@@ -98,26 +96,6 @@ const galleryItems: GalleryItem[] = [
     location: "Bangalore–Chennai Expressway / NH Corridors",
     aspect: "landscape",
     tags: ["Utility Realignment", "Expressway Corridor", "Overhead Network"],
-  },
-  {
-    id: "transmission-network",
-    title: "Rural Agri Feeder Segregation Network",
-    subtitle: "11kV agricultural feeder segregation line works executed under the government RDSS scheme.",
-    category: "Highway Corridors",
-    image: transmissionNetworkImg,
-    location: "TANGEDCO Kanchipuram Circle",
-    aspect: "landscape",
-    tags: ["RDSS Scheme", "11kV Feeder Network", "TANGEDCO"],
-  },
-  {
-    id: "substation-yard",
-    title: "33/11kV Substation Yard & Transformers",
-    subtitle: "High-capacity power transformer installations, switchyard civil platforms, and bay extensions.",
-    category: "Substations & Civil",
-    image: substationYardImg,
-    location: "Substation Infrastructure",
-    aspect: "landscape",
-    tags: ["33/11kV Substation", "Power Transformers", "Switchyard"],
   },
   {
     id: "civil-foundations",

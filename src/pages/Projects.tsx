@@ -17,6 +17,8 @@ export default function Projects() {
     { name: "RCCL SRIKANCHE", role: "Bangalore–Chennai Expressway", state: "Tamil Nadu" },
     { name: "RR INFRA", role: "CPRR Six-Lane Expressway", state: "Tamil Nadu" },
     { name: "P & C PROJECTS", role: "NH-48 Four-Laning Package", state: "Tamil Nadu" },
+    { name: "KNRCL", role: "State Highway SH-115 / CKICP", state: "Tamil Nadu" },
+    { name: "SPK & CO", role: "National Highway NH-66", state: "Tamil Nadu" },
     { name: "NHAI CORRIDORS", role: "National Highway Networks", state: "Pan-South India" },
   ] as const;
 
@@ -24,8 +26,8 @@ export default function Projects() {
     <>
       <SEO
         title="Major Infrastructure Projects Portfolio — Vijaya Lakshmi Infra | NHAI Utility Shifting & RDSS Works"
-        description="Explore 10+ completed and ongoing critical infrastructure projects by Vijaya Lakshmi Infra including NHAI highway utility shifting, Bangalore–Chennai Expressway, Dilip Buildcon NH-332 packages, and TANGEDCO RDSS feeder segregation."
-        keywords="Vijaya Lakshmi Infra projects, NHAI utility shifting projects, Dilip Buildcon subcontractor, Bangalore Chennai Expressway Package IV, NH-332 Puducherry Villupuram, NH-205 Tiruvallur Veppampattu, NH-716B Chittoor Thatchur, CPRR Chennai Peripheral Ring Road, TANGEDCO RDSS 11kV feeder segregation, Keelapalur Tamil Nadu"
+        description="Explore 12+ completed and ongoing critical infrastructure projects by Vijaya Lakshmi Infra including State Highway SH-115 CKICP, National Highway NH-66, NHAI highway utility shifting, and TANGEDCO RDSS feeder segregation."
+        keywords="Vijaya Lakshmi Infra projects, KNRCL SH-115, SPK & CO NH-66, CKICP 109KM, NHAI utility shifting projects, Dilip Buildcon subcontractor, Bangalore Chennai Expressway Package IV, NH-332 Puducherry Villupuram, NH-205 Tiruvallur Veppampattu, NH-716B Chittoor Thatchur, CPRR Chennai Peripheral Ring Road, TANGEDCO RDSS 11kV feeder segregation, Keelapalur Tamil Nadu"
         canonicalPath="/projects"
         schema={{
           "@type": "CollectionPage",
